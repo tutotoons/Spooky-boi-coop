@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class ExplorerBehaviour : CameraMovementBehaviour
+public class ExplorerBehaviour : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float movementSpeed;
@@ -12,11 +11,6 @@ public class ExplorerBehaviour : CameraMovementBehaviour
     [SerializeField] private float endMoveSmoothingTime;
 
     private Vector3 movementInput;
-
-    public override void Update()
-    {
-        base.Update();
-    }
 
     public void FixedUpdate()
     {

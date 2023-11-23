@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMovementBehaviour : BaseInteractor
+public class CameraMovementBehaviour : MonoBehaviour
 {
     [SerializeField] private Transform upDownTransform;
     [SerializeField] private Transform leftRightTransform;

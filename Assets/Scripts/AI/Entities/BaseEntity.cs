@@ -13,6 +13,7 @@ public class BaseEntity : MonoBehaviour
 
     protected StateMachine stateMachine;
 
+    protected PatrolState patrol;
     protected ChaseState chase;
     protected IdleState idle;
 
@@ -31,7 +32,10 @@ public class BaseEntity : MonoBehaviour
         stateMachine = new StateMachine();
 
         chase = new ChaseState(navMeshAgent, target);
+        patrol = new PatrolState(navMeshAgent, new Vector3[] { });
+
         idle = new IdleState(navMeshAgent);
+
 
         stateMachine.AddTransition(idle, chase, () => { return idle.IdleTimerOver(); });
         stateMachine.AddTransition(chase, idle, () => { return chase.CloseToPlayer(); });

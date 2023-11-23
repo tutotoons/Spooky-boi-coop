@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class AIUtils
 {
-    private const float DISTANCE_THRESHOLD = 0.2f;
+    public const float DISTANCE_THRESHOLD = 0.2f;
 
     public static bool ApproximatePositionReached(Vector3 _a, Vector3 _b, float _dist = DISTANCE_THRESHOLD)
     {
