@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -8,7 +9,7 @@ using UnityEngine.EventSystems;
 
 
 [RequireComponent(typeof(Collider))]
-public class BaseInteractable : MonoBehaviour
+public class BaseInteractable : NetworkBehaviour
 {
 
     private enum InteractableType
@@ -20,8 +21,8 @@ public class BaseInteractable : MonoBehaviour
 
     [SerializeField] private InteractableType interactableType;
     [SerializeField] private BaseInteractionListener[] interactives;
-    bool previousState;
-
+    
+    private bool previousState;
 
     public virtual void Interact()
     {

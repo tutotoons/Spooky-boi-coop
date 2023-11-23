@@ -36,6 +36,7 @@ public class PatrolState : IState
     public void OnEnter()
     {
         index = GetClosestPosition();
+        agent.SetDestination(patrolPoints[index]);
     }
 
     public void OnExit()
@@ -53,5 +54,7 @@ public class PatrolState : IState
     private void ChangeDestination()
     {
         index = index == patrolPoints.Length-1 ? 0 : index++;
+        agent.SetDestination(patrolPoints[index]);
+
     }
 }

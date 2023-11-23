@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -10,36 +11,40 @@ public class GameManager : MonoBehaviour
     {
         GUILayout.BeginArea(new Rect(10, 10, 300, 300));
         
-        var networkManager = NetworkManager.Singleton;
-
         if (!IsConnected())
         {
-            if (GUILayout.Button("Host"))
-            {
-                networkManager.StartHost();
-            }
-
-            if (GUILayout.Button("Client"))
-            {
-                networkManager.StartClient();
-            }
-
-            if (GUILayout.Button("Server"))
-            {
-                networkManager.StartServer();
-            }
+            Buttons();
         }
         else
         {
-            GUILayout.Label($"Mode: {(networkManager.IsHost ? "Host" : networkManager.IsServer ? "Server" : "Client")}");
-
-            if (networkManager.IsClient)
-            {
-                GUILayout.Label("Connected as client");
-            }
+            StatusLabels();
         }
 
         GUILayout.EndArea();
+    }
+
+    private void StatusLabels()
+    {
+        string _status = NetworkManager.Singleton.IsHost ? "Host" : NetworkManager.Singleton.IsServer ? "Server" : "Client";
+        GUILayout.Label(_status);
+    }
+
+    private static void Buttons()
+    {
+        if (GUILayout.Button("Host"))
+        {
+            NetworkManager.Singleton.StartHost();
+        }
+
+        if (GUILayout.Button("Client"))
+        {
+            NetworkManager.Singleton.StartClient();
+        }
+
+        if (GUILayout.Button("Server"))
+        {
+            NetworkManager.Singleton.StartServer();
+        }
     }
 
     private bool IsConnected()

@@ -23,7 +23,7 @@ public class BaseEntity : MonoBehaviour
 
     private void Awake()
     {
-        Initialize(FindObjectOfType<ExplorerBehaviour>().transform);
+        Initialize(FindObjectOfType<NetworkPlayer>().transform);
     }
 
     public virtual void Initialize(Transform _target)
@@ -33,7 +33,6 @@ public class BaseEntity : MonoBehaviour
 
         chase = new ChaseState(navMeshAgent, target);
         patrol = new PatrolState(navMeshAgent, new Vector3[] { });
-
         idle = new IdleState(navMeshAgent);
 
 
@@ -50,7 +49,6 @@ public class BaseEntity : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"{DistanceToPlayer}");
         stateMachine.Tick(Time.deltaTime);
     }
 }
