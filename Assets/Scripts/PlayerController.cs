@@ -13,7 +13,7 @@ public class PlayerController : NetworkBehaviour
 
     private void Update()
     {
-        if(!IsClient)
+        if(!IsClient || !IsOwner)
         {
             return;
         }
@@ -24,24 +24,9 @@ public class PlayerController : NetworkBehaviour
         }
     }
 
-    public void Jump()
+    [ServerRpc]
+    public void JumpServerRpc()
     {
         _rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
-    }
-
-    [ServerRpc]
-    private void JumpServerRpc()
-    {
-        NetworkManager manager = NetworkManager.Singleton;
-
-        if(!manager.ConnectedClients.ContainsKey(OwnerClientId))
-        {
-            return;
-        }
-
-        var client = manager.ConnectedClients[OwnerClientId];
-        var clientPlayer = client.PlayerObject.GetComponent<PlayerController>();
-
-        clientPlayer.Jump();
     }
 }
