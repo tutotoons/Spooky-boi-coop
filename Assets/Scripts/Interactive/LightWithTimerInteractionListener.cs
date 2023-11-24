@@ -10,7 +10,7 @@ public class LightWithTimerInteractionListener : BaseInteractionListener
     private bool isActive;
     private float timer;
 
-    public override void Activate(bool _state)
+    public override void Animate(bool _state)
     {
         isActive = _state;
         lightObj.gameObject.SetActive(_state);

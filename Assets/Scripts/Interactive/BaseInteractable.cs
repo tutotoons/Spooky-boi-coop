@@ -11,26 +11,45 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(Collider))]
 public class BaseInteractable : NetworkBehaviour
 {
-
     private enum InteractableType
     {
         Enable,
         Disable,
-        Switch
+        Toggle
     }
 
+    [SerializeField] private Outline outline;
     [SerializeField] private InteractableType interactableType;
+    [SerializeField] private Animator animator;
     [SerializeField] private BaseInteractionListener[] interactives;
-    
+    [SerializeField] private float interactionCooldown;
     private bool previousState;
+    private float timer;
 
     public virtual void Interact()
     {
+        if (timer > 0f)
+        {
+            return;
+        }
+        timer = interactionCooldown;
+        AnimateInteraction();
+
         bool _state = GetState();
         foreach (BaseInteractionListener _interactive in interactives)
         {
             _interactive.Activate(_state);
         }
+    }
+
+    public virtual void AnimateInteraction()
+    {
+        animator.SetTrigger("Interact");
+    }
+
+    private void Update()
+    {
+        timer -= Time.deltaTime;
     }
 
     public virtual bool GetState()
@@ -41,7 +60,7 @@ public class BaseInteractable : NetworkBehaviour
                 return true;
             case InteractableType.Disable:
                 return false;
-            case InteractableType.Switch:
+            case InteractableType.Toggle:
                 previousState = !previousState;
                 return previousState;
             default:
@@ -49,11 +68,13 @@ public class BaseInteractable : NetworkBehaviour
         }
     }
 
-    internal void StopHighlight()
+    public void StopHighlight()
     {
+        outline.enabled = false;
     }
 
-    internal void StartHighlight()
+    public void StartHighlight()
     {
+        outline.enabled = true;
     }
 }

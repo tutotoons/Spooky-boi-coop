@@ -30,6 +30,7 @@ public class NetworkPlayer : NetworkBehaviour
     {
         if (IsOwner)
         {
+            Cursor.lockState = CursorLockMode.Locked;
             audioListener.enabled = true;
             virtualCam.Priority = 1;
         }
@@ -87,13 +88,13 @@ public class NetworkPlayer : NetworkBehaviour
 
     private void TryGetCurrentInteractableAndHighlight()
     {
-        if (Physics.Raycast(interactPos.position, interactPos.forward, out RaycastHit _hitInfo, 5f, interactionMask))
+        if (Physics.Raycast(interactPos.position, interactPos.forward, out RaycastHit _hitInfo, interactionRange, interactionMask))
         {
             BaseInteractable _newInteractable = _hitInfo.transform.GetComponent<BaseInteractable>();
             if (currentInteractable != _newInteractable)
             {
                 currentInteractable?.StopHighlight();
-                _newInteractable.StartHighlight();
+                _newInteractable?.StartHighlight();
                 currentInteractable = _newInteractable;
             }
         }
