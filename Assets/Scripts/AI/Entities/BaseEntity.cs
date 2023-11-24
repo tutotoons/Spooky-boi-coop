@@ -53,6 +53,7 @@ public class BaseEntity : NetworkBehaviour
         stateMachine.AddTransition(chase, search, chase.LostPlayer);
         stateMachine.AddTransition(search, chase, search.FoundPlayer);
         stateMachine.AddTransition(search, idle, search.LostPlayer);
+        stateMachine.AddTransition(heatPursuitState, idle, heatPursuitState.ReachedTarget);
         stateMachine.AddAnyTransition(chase, chase.TriggeredPlayerDetection);
         stateMachine.AddAnyTransition(heatPursuitState, HeatThresholdReached);
 
