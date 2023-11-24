@@ -14,12 +14,17 @@ public class BaseEntity : NetworkBehaviour
     [SerializeField] protected float defaultSpeed;
     [SerializeField] protected float stopDist;
 
-    protected StateMachine stateMachine;
+    [Header("Tweaking")]
+    [SerializeField] private float heatDecaySpeed;
+    [SerializeField] private float maxHeat = 1;
 
+    protected HeatPursuitState heatPursuitState;
+    protected StateMachine stateMachine;
     protected SearchState search;
     protected PatrolState patrol;
     protected ChaseState chase;
     protected IdleState idle;
+    protected float totalHeat;
 
     private Transform target;
     private bool initialized;
@@ -36,10 +41,12 @@ public class BaseEntity : NetworkBehaviour
         target = _target;
         stateMachine = new StateMachine();
 
+        heatPursuitState = new HeatPursuitState(navMeshAgent, target);
         search = new SearchState(navMeshAgent, target, detectionConeTrigger);
         chase = new ChaseState(navMeshAgent, target, detectionConeTrigger);
         patrol = new PatrolState(navMeshAgent, patrolRouteManager);
         idle = new IdleState(navMeshAgent);
+
 
         stateMachine.AddTransition(idle, patrol, idle.IdleTimerOver);
         stateMachine.AddTransition(patrol, idle, patrol.PatrolTimerRunOut);
@@ -47,6 +54,7 @@ public class BaseEntity : NetworkBehaviour
         stateMachine.AddTransition(search, chase, search.FoundPlayer);
         stateMachine.AddTransition(search, idle, search.LostPlayer);
         stateMachine.AddAnyTransition(chase, chase.TriggeredPlayerDetection);
+        stateMachine.AddAnyTransition(heatPursuitState, HeatThresholdReached);
 
         stateMachine.SetState(patrol);
 
@@ -66,6 +74,16 @@ public class BaseEntity : NetworkBehaviour
         Initialize(player.transform);
     }
 
+    public void AddHeat(float value)
+    {
+        totalHeat = Mathf.Clamp(totalHeat + value, 0, float.MaxValue);
+    }
+
+    private bool HeatThresholdReached()
+    {
+        return totalHeat > maxHeat;
+    }
+
     private void Update()
     {
         if(!initialized)
@@ -74,5 +92,6 @@ public class BaseEntity : NetworkBehaviour
         }
 
         stateMachine.Tick(Time.deltaTime);
+        AddHeat(-Time.deltaTime * heatDecaySpeed);
     }
 }

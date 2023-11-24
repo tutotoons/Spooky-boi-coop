@@ -331,6 +331,8 @@ MonoBehaviour:
   navMeshAgent: {fileID: 210561075}
   defaultSpeed: 3
   stopDist: 1
+  heatDecaySpeed: 0.2
+  maxHeat: 1
 --- !u!1 &219322308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,6 +1394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd4974d670524756863465b5805a790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ipField: {fileID: 0}
+  connectScreen: {fileID: 0}
 --- !u!4 &1996754215
 Transform:
   m_ObjectHideFlags: 0
