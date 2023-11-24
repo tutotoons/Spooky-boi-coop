@@ -70,10 +70,9 @@ public class BaseEntity : NetworkBehaviour
 
     private IEnumerator FindPlayerAndInitializeCoroutine()
     {
-        bool foundPlayer = false;
         NetworkPlayer explorerPlayer = null;
 
-        while(!foundPlayer)
+        while(explorerPlayer == null)
         {
             NetworkPlayer[] players = FindObjectsOfType<NetworkPlayer>();
 
