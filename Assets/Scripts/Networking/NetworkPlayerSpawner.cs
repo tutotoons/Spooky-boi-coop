@@ -26,8 +26,8 @@ public class NetworkPlayerSpawner : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void SpawnPlayerServerRpc(ulong _clientId, int _prefabId)
     {
-        Vector3 _spawnPos = _prefabId == 0 ? explorerSpawnPoint.position : navigatorSpawnPoint.position;
-        GameObject _playerObj = _prefabId == 0 ? Instantiate(explorerPrefab, _spawnPos, Quaternion.identity) : Instantiate(navigatorPrefab, _spawnPos, Quaternion.identity);
+        Vector3 _spawnPos = _prefabId == 0 ? navigatorSpawnPoint.position : explorerSpawnPoint.position;
+        GameObject _playerObj = _prefabId == 0 ? Instantiate(navigatorPrefab, _spawnPos, Quaternion.identity) : Instantiate(explorerPrefab, _spawnPos, Quaternion.identity);
 
         _playerObj.SetActive(true);
         _playerObj.GetComponent<NetworkObject>().SpawnAsPlayerObject(_clientId, true);
