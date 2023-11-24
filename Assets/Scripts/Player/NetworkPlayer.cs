@@ -1,7 +1,4 @@
 using Cinemachine;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -13,6 +10,8 @@ public enum PlayerType
 
 public class NetworkPlayer : NetworkBehaviour
 {
+    public PlayerType PlayerType => playerType;
+
     [SerializeField] private PlayerType playerType;
     [SerializeField] private Transform interactPos;
     [SerializeField] private LayerMask interactionMask;

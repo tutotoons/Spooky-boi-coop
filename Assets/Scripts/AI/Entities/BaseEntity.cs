@@ -70,15 +70,26 @@ public class BaseEntity : NetworkBehaviour
 
     private IEnumerator FindPlayerAndInitializeCoroutine()
     {
-        NetworkPlayer player = null;
+        bool foundPlayer = false;
+        NetworkPlayer explorerPlayer = null;
 
-        while(player == null)
+        while(!foundPlayer)
         {
-            player = FindObjectOfType<NetworkPlayer>();
+            NetworkPlayer[] players = FindObjectsOfType<NetworkPlayer>();
+
+            foreach(NetworkPlayer player in players)
+            {
+                if(player.PlayerType == PlayerType.Explorer)
+                {
+                    explorerPlayer = player;
+                    break;
+                }
+            }
+
             yield return waitForSecondsToInitialize;
         }
 
-        Initialize(player.transform);
+        Initialize(explorerPlayer.transform);
     }
 
     public void AddHeat(float value)
