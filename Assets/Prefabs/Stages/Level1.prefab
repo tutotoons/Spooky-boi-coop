@@ -3514,7 +3514,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -3995,12 +3995,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2d220dd5020cd4b810d8595c68887a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionCooldown: 0.5
   outline: {fileID: 1424889472719819656}
   interactableType: 0
   animator: {fileID: 1762940073529215609}
   interactives:
   - {fileID: 713703064269230028}
-  interactionCooldown: 0.5
 --- !u!114 &1424889472719819656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5593,8 +5593,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70349783cc461c428ef0b21a72f19f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 8423193781953696731}
   startingState: 0
+  OnEnable:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDisable:
+    m_PersistentCalls:
+      m_Calls: []
+  animator: {fileID: 8423193781953696731}
 --- !u!95 &8423193781953696731
 Animator:
   serializedVersion: 5
@@ -5832,12 +5838,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2d220dd5020cd4b810d8595c68887a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionCooldown: 0.5
   outline: {fileID: 9168719756159966337}
   interactableType: 0
   animator: {fileID: 6978382017470412240}
   interactives:
   - {fileID: 6872280267606191070}
-  interactionCooldown: 0.5
 --- !u!114 &9168719756159966337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6023,8 +6029,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70349783cc461c428ef0b21a72f19f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 5698552021551959932}
   startingState: 0
+  OnEnable:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDisable:
+    m_PersistentCalls:
+      m_Calls: []
+  animator: {fileID: 5698552021551959932}
 --- !u!95 &5698552021551959932
 Animator:
   serializedVersion: 5
