@@ -48,18 +48,19 @@ public class NetworkPlayer : NetworkBehaviour
         }
         else
         {
-            cinemachineBrain.enabled = false;
-            virtualCam.enabled = false;
-
             audioListener.enabled = false;
             virtualCam.Priority = 0;
 
-            playerCamera.targetTexture = povRenderTexture;
-            playerCamera.forceIntoRenderTexture = true;
+            if (playerType == PlayerType.Explorer)
+            {
+                cinemachineBrain.enabled = false;
+                virtualCam.enabled = false;
+                playerCamera.targetTexture = povRenderTexture;
+                playerCamera.forceIntoRenderTexture = true;
+            }
         }
         phone?.Init();
     }
-
 
     virtual public void Update()
     {

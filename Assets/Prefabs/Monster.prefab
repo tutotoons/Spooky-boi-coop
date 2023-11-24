@@ -119,6 +119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8903ae349b5c9740b364fd9c50c0fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patrolRouteManager: {fileID: 0}
+  detectionConeTrigger: {fileID: 0}
   navMeshAgent: {fileID: 4897461294053513912}
   defaultSpeed: 7
   stopDist: 10
+  heatDecaySpeed: 0
+  maxHeat: 1
