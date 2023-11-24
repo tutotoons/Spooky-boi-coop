@@ -17,6 +17,11 @@ public class PatrolState : IState
 
     public void OnEnter()
     {
+        if(routeManager == null)
+        {
+            return;
+        }
+
         routeManager.SetClosestRouteActive(agent.transform);
 
         if(routeManager.ActiveRoute == null)
@@ -78,7 +83,7 @@ public class PatrolState : IState
 
     public bool NoRoute()
     {
-        return routeManager.ActiveRoute == null;
+        return routeManager == null || routeManager.ActiveRoute == null;
     }
 
     private void ChangeDestination()
