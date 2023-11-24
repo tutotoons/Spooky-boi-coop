@@ -24,16 +24,15 @@ public class SearchState : IState
     {
         Debug.Log("Chase Lost Start");
 
-        _state = State.Searching;
-
+        agent.isStopped = false;
         _lostTimer = 2f;
+        _state = State.Searching;
     }
 
     public void OnExit()
     {
         Debug.Log("Chase Lost End");
 
-        agent.isStopped = true;
         _state = State.None;
     }
 

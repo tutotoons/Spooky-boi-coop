@@ -41,7 +41,6 @@ public class BaseEntity : NetworkBehaviour
         patrol = new PatrolState(navMeshAgent, patrolRouteManager);
         idle = new IdleState(navMeshAgent);
 
-
         stateMachine.AddTransition(idle, patrol, idle.IdleTimerOver);
         stateMachine.AddTransition(patrol, idle, patrol.PatrolTimerRunOut);
         stateMachine.AddTransition(chase, search, chase.LostPlayer);

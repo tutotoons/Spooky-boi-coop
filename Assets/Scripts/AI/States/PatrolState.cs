@@ -21,8 +21,9 @@ public class PatrolState : IState
 
         routeManager.RouteChangedEvent += OnRouteChangedCallback;
 
-        routeManager.SetClosestRouteActive(agent.transform);
+        agent.isStopped = false;
 
+        routeManager.SetClosestRouteActive(agent.transform);
         agent.SetDestination(routeManager.ActiveRoute.points[index].position);
     }
 
