@@ -17,13 +17,18 @@ public class PatrolState : IState
 
     public void OnEnter()
     {
-        waitAfterTimer = Random.Range(10f, 20f);
+        routeManager.SetClosestRouteActive(agent.transform);
+
+        if(routeManager.ActiveRoute == null)
+        {
+            return;
+        }
 
         routeManager.RouteChangedEvent += OnRouteChangedCallback;
 
-        agent.isStopped = false;
+        waitAfterTimer = Random.Range(10f, 20f);
 
-        routeManager.SetClosestRouteActive(agent.transform);
+        agent.isStopped = false;
         agent.SetDestination(routeManager.ActiveRoute.points[index].position);
     }
 
@@ -69,6 +74,11 @@ public class PatrolState : IState
     public bool PatrolTimerRunOut()
     {
         return waitAfterTimer < 0;
+    }
+
+    public bool NoRoute()
+    {
+        return routeManager.ActiveRoute == null;
     }
 
     private void ChangeDestination()
