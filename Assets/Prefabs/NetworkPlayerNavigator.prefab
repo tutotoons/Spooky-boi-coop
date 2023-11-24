@@ -582,6 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4509a5dce3c95644184c50d636bdb112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerType: 1
   interactPos: {fileID: 6586789085279862452}
   interactionMask:
     serializedVersion: 2
@@ -596,6 +597,7 @@ MonoBehaviour:
   movementSpeed: 10
   virtualCam: {fileID: 6130117631192329574}
   audioListener: {fileID: 3349593877667335017}
+  phone: {fileID: 0}
 --- !u!114 &8235405792396291832
 MonoBehaviour:
   m_ObjectHideFlags: 0

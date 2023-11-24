@@ -41,20 +41,15 @@ public class NetworkPlayer : NetworkBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             audioListener.enabled = true;
             virtualCam.Priority = 1;
-            if (playerType == PlayerType.Explorer)
-            {
-                phone?.Init();
-            }
-            else
-            {
-                phone?.gameObject.SetActive(false);
-            }
         }
         else
         {
             audioListener.enabled = false;
             virtualCam.Priority = 0;
         }
+
+        Debug.Log($" trying to init phone {phone != null} owner:{IsOwner} isServer:{IsServer}");
+        phone?.Init();
     }
 
 

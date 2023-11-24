@@ -22,9 +22,9 @@ public class BaseInteractable : NetworkBehaviour
     [SerializeField] private InteractableType interactableType;
     [SerializeField] private Animator animator;
     [SerializeField] private BaseInteractionListener[] interactives;
-    [SerializeField] private float interactionCooldown;
+    [SerializeField] protected float interactionCooldown;
     private bool previousState;
-    private float timer;
+    protected float timer;
 
     public virtual void Interact()
     {

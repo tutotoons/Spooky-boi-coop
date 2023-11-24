@@ -668,11 +668,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8994898858729714349}
     m_Modifications:
+    - target: {fileID: 2687929736451422132, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5190209088481391475, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 8152012087164419645}
+    - target: {fileID: 6769287921724133085, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7403195876296508776, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
       propertyPath: m_Name
@@ -748,7 +758,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 3.742
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1615973452507750300, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28, type: 3}
 --- !u!4 &2307951223085284205 stripped
 Transform:
@@ -871,8 +882,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 1014653141622919957}
+  clips:
+  - {fileID: 8300000, guid: 03dc633751b4deb4f8e7b68541615d4c, type: 3}
+  - {fileID: 8300000, guid: 5708750e81ecb5443b4e71512065cf1d, type: 3}
   text: {fileID: 7168377054402025470}
-  phoneQuad: {fileID: 0}
+  phoneQuad: {fileID: 7547104377965794059}
 --- !u!114 &7168377054402025470 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3353759345969378113, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
@@ -885,3 +899,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!23 &7547104377965794059 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2687929736451422132, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
+    type: 3}
+  m_PrefabInstance: {fileID: 5616484239954879679}
+  m_PrefabAsset: {fileID: 0}
