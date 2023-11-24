@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ChaseLostState : IState
+public class SearchState : IState
 {
     private readonly NavMeshAgent agent;
     private readonly Transform target;
@@ -10,7 +10,7 @@ public class ChaseLostState : IState
     private State _state;
     private float _lostTimer;
 
-    public ChaseLostState(NavMeshAgent _navMeshAgent, Transform _target, ColliderTrigger _detectionCone)
+    public SearchState(NavMeshAgent _navMeshAgent, Transform _target, ColliderTrigger _detectionCone)
     {
         agent = _navMeshAgent;
         target = _target;

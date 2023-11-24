@@ -16,7 +16,7 @@ public class BaseEntity : NetworkBehaviour
 
     protected StateMachine stateMachine;
 
-    protected ChaseLostState chaseLost;
+    protected SearchState search;
     protected PatrolState patrol;
     protected ChaseState chase;
     protected IdleState idle;
@@ -36,7 +36,7 @@ public class BaseEntity : NetworkBehaviour
         target = _target;
         stateMachine = new StateMachine();
 
-        chaseLost = new ChaseLostState(navMeshAgent, target, detectionConeTrigger);
+        search = new SearchState(navMeshAgent, target, detectionConeTrigger);
         chase = new ChaseState(navMeshAgent, target, detectionConeTrigger);
         patrol = new PatrolState(navMeshAgent, patrolRouteManager);
         idle = new IdleState(navMeshAgent);
@@ -44,9 +44,9 @@ public class BaseEntity : NetworkBehaviour
 
         stateMachine.AddTransition(idle, patrol, idle.IdleTimerOver);
         stateMachine.AddTransition(patrol, idle, patrol.PatrolTimerRunOut);
-        stateMachine.AddTransition(chase, chaseLost, chase.LostPlayer);
-        stateMachine.AddTransition(chaseLost, chase, chaseLost.FoundPlayer);
-        stateMachine.AddTransition(chaseLost, idle, chaseLost.LostPlayer);
+        stateMachine.AddTransition(chase, search, chase.LostPlayer);
+        stateMachine.AddTransition(search, chase, search.FoundPlayer);
+        stateMachine.AddTransition(search, idle, search.LostPlayer);
         stateMachine.AddAnyTransition(chase, chase.TriggeredPlayerDetection);
 
         stateMachine.SetState(patrol);

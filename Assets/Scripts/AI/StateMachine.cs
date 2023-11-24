@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class StateMachine
 {
@@ -13,6 +14,20 @@ public class StateMachine
 
     private static readonly List<Transition> EmptyTransitions = new List<Transition>(0);
 
+    public override string ToString()
+    {
+        string _msg = $"cur state: {curState?.GetType()} | anyTrans: ";
+        foreach (var trans in anyTransitions)
+        {
+            _msg += trans?.ToString() + "|";
+        }
+        _msg += " curTrans: ";
+        foreach (var trans in curTransitions)
+        {
+            _msg += trans?.ToString() + "|";
+        }
+        return _msg;
+    }
     public void Tick(float _delta)
     {
         var transition = GetTransition();
@@ -30,7 +45,6 @@ public class StateMachine
         {
             return;
         }
-
         curState?.OnExit();
         curState = _state;
 
@@ -41,6 +55,7 @@ public class StateMachine
         }
 
         curState.OnEnter();
+        Debug.Log(ToString());
     }
 
     public void AddTransition(IState _from, IState _to, Func<bool> _condition)
@@ -90,6 +105,11 @@ public class StateMachine
         {
             To = _to;
             Condition = _condition;
+        }
+
+        public override string ToString()
+        {
+            return $"to: {To.GetType()}";
         }
     }
 
