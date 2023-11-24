@@ -13,11 +13,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject connectScreen;
     private string ip;
 
+    /*
     private void Start()
     {
         ip = "0.0.0.0";
         SetIpAddress();
-    }
+    }*/
 
     private void SetIpAddress()
     {
@@ -32,21 +33,44 @@ public class GameManager : MonoBehaviour
         {
             StatusLabels();
         }
+        else
+        {
+            Buttons();
+        }
 
         GUILayout.EndArea();
+    }
+
+    private void Buttons()
+    {
+        if (GUILayout.Button("Host"))
+        {
+            NetworkManager.Singleton.StartHost();
+            connectScreen.SetActive(false);
+        }
+        if (GUILayout.Button("Client"))
+        {
+            NetworkManager.Singleton.StartClient();
+            connectScreen.SetActive(false);
+        }
+        if (GUILayout.Button("Server"))
+        {
+            NetworkManager.Singleton.StartServer();
+            connectScreen.SetActive(false);
+        }
     }
 
     private void StatusLabels()
     {
         string _status = NetworkManager.Singleton.IsHost ? "Host" : NetworkManager.Singleton.IsServer ? "Server" : "Client";
-        GUILayout.Label($"{ip}{_status}");
+        GUILayout.Label($"{ip} {_status}");
     }
 
     public void StartHost()
     {
         connectScreen.SetActive(false);
-        NetworkManager.Singleton.StartHost();
         GetLocalIp();
+        NetworkManager.Singleton.StartHost();
     }
 
     private void GetLocalIp()
@@ -67,6 +91,8 @@ public class GameManager : MonoBehaviour
     public void StartClient()
     {
         connectScreen.SetActive(false);
+        ip = ipField.text;
+        SetIpAddress();
         NetworkManager.Singleton.StartClient();
     }
 
