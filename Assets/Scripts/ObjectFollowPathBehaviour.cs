@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [Serializable]
 public class PathPoint
@@ -14,7 +15,7 @@ public class ObjectFollowPathBehaviour : MonoBehaviour
 {
     [SerializeField] private PathPoint[] points;
     [SerializeField] private float duration;
-
+    [SerializeField] private UnityEvent onMoveComplete;
     private Coroutine coroutine;
 
     [ContextMenu("Move")]
@@ -34,6 +35,8 @@ public class ObjectFollowPathBehaviour : MonoBehaviour
         {
             yield return MoveToPoint(points[i]);
         }
+
+        onMoveComplete?.Invoke();
     }
 
     private IEnumerator MoveToPoint(PathPoint _point)
