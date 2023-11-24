@@ -1,3 +1,4 @@
+using System;
 using Cinemachine;
 using Unity.Netcode;
 using UnityEngine;
@@ -10,6 +11,8 @@ public enum PlayerType
 
 public class NetworkPlayer : NetworkBehaviour
 {
+    public event Action DiedEvent;
+
     public PlayerType PlayerType => playerType;
 
     [SerializeField] private PlayerType playerType;
@@ -27,6 +30,7 @@ public class NetworkPlayer : NetworkBehaviour
     [Header("Player")]
     [SerializeField] private float MoveSpeed = 4.0f;
     [SerializeField] private float RotationSpeed = 1.0f;
+    [SerializeField] private int lives = 3;
 
     [Header("Cinemachine")]
     [SerializeField] private Transform upDownTransform;
@@ -70,6 +74,21 @@ public class NetworkPlayer : NetworkBehaviour
         }
         HandleInteractions();
         HandleMovement();
+    }
+
+    public void TakeLive()
+    {
+        lives--;
+
+        if(lives <= 0)
+        {
+            enabled = false;
+
+            if(IsOwner)
+            {
+                DiedEvent?.Invoke();
+            }
+        }
     }
 
     private void HandleInteractions()

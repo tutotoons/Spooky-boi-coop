@@ -42,7 +42,21 @@ public class ChaseState : IState
 
     public void Tick(float _delta)
     {
+        if(_searchState != SearchState.Chasing)
+        {
+            return;
+        }
+
         agent.SetDestination(target.position);
+
+        if(agent.remainingDistance < AIUtils.DISTANCE_THRESHOLD)
+        {
+            if(target.TryGetComponent(out NetworkPlayer player))
+            {
+                player.TakeLive();
+                _searchState = SearchState.Caught;
+            }
+        }
     }
 
     private void DetectPlayer()
@@ -87,6 +101,11 @@ public class ChaseState : IState
         }
     }
 
+    internal bool CaughtPlayer()
+    {
+        return _searchState == SearchState.Caught;
+    }
+
     internal bool LostPlayer()
     {
         return _searchState == SearchState.LostPlayer;
@@ -102,6 +121,7 @@ public class ChaseState : IState
         None,
         FoundPlayer,
         Chasing,
+        Caught,
         LostPlayer,
     }
 }

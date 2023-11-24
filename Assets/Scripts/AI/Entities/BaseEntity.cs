@@ -11,6 +11,7 @@ public class BaseEntity : NetworkBehaviour
     [SerializeField] protected NavMeshAgent navMeshAgent;
     [SerializeField] protected float defaultSpeed;
     [SerializeField] protected float stopDist;
+    [SerializeField] protected Transform teleportAwayTarget;
 
     [Header("Tweaking")]
     [SerializeField] private float heatDecaySpeed;
@@ -18,6 +19,7 @@ public class BaseEntity : NetworkBehaviour
 
     protected HeatPursuitState heatPursuitState;
     protected StateMachine stateMachine;
+    protected TeleportState teleport;
     protected SearchState search;
     protected PatrolState patrol;
     protected ChaseState chase;
@@ -47,6 +49,7 @@ public class BaseEntity : NetworkBehaviour
 
         heatPursuitState = new HeatPursuitState(navMeshAgent, target);
         search = new SearchState(navMeshAgent, target, detectionConeTrigger);
+        teleport = new TeleportState(navMeshAgent, teleportAwayTarget);
         chase = new ChaseState(navMeshAgent, target, detectionConeTrigger);
         patrol = new PatrolState(navMeshAgent, patrolRouteManager);
         idle = new IdleState(navMeshAgent);
@@ -55,6 +58,8 @@ public class BaseEntity : NetworkBehaviour
         stateMachine.AddTransition(patrol, idle, patrol.NoRoute);
         stateMachine.AddTransition(patrol, idle, patrol.PatrolTimerRunOut);
         stateMachine.AddTransition(chase, search, chase.LostPlayer);
+        stateMachine.AddTransition(chase, teleport, chase.CaughtPlayer);
+        stateMachine.AddTransition(teleport, idle, teleport.TeleportedAway);
         stateMachine.AddTransition(search, chase, search.FoundPlayer);
         stateMachine.AddTransition(search, idle, search.LostPlayer);
         stateMachine.AddTransition(heatPursuitState, idle, heatPursuitState.ReachedTarget);
