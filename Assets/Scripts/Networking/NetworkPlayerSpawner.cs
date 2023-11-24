@@ -13,6 +13,7 @@ public class NetworkPlayerSpawner : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        Debug.Log($"player connected trying to spawn isServer{IsServer}");
         if (IsServer)
         {
             SpawnPlayerServerRpc(NetworkManager.Singleton.LocalClientId, 0);

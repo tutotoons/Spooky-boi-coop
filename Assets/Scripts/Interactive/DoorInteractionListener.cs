@@ -10,6 +10,12 @@ public class DoorInteractionListener : BaseInteractionListener
 
     private bool currentState;
 
+    private void Awake()
+    {
+        currentState = !startingState;
+        Animate(startingState);
+    }
+
     public override void Animate(bool _state)
     {
         if (currentState == _state)
@@ -18,10 +24,12 @@ public class DoorInteractionListener : BaseInteractionListener
         }
         if (_state)
         {
+            Debug.Log($"opening door");
             animator.SetTrigger("Open");
         }
         else
         {
+            Debug.Log($"closing door");
             animator.SetTrigger("Close");
         }
         currentState = _state;
