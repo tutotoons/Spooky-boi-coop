@@ -880,6 +880,11 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3758985851
       objectReference: {fileID: 0}
+    - target: {fileID: 1233212773743397523, guid: 74269048e031ef943a0fba42ba6fe193,
+        type: 3}
+      propertyPath: interactableType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2372252188742190892, guid: 74269048e031ef943a0fba42ba6fe193,
         type: 3}
       propertyPath: m_Mesh
@@ -949,6 +954,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8795506903696206948, guid: 74269048e031ef943a0fba42ba6fe193,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1022056513
       objectReference: {fileID: 0}
     - target: {fileID: 8958566124003006033, guid: 74269048e031ef943a0fba42ba6fe193,
         type: 3}
