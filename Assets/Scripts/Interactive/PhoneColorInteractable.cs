@@ -6,6 +6,7 @@ public class PhoneColorInteractable : BaseInteractable
 {
     [SerializeField] private Color color;
     [SerializeField] private float duration;
+    [SerializeField] private float heat;
 
     public override void Interact()
     {

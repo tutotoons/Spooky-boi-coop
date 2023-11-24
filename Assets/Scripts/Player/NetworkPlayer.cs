@@ -17,22 +17,24 @@ public class NetworkPlayer : NetworkBehaviour
     [SerializeField] private Transform interactPos;
     [SerializeField] private LayerMask interactionMask;
     [SerializeField] private float interactionRange;
-    [SerializeField] private Transform upDownTransform;
-    [SerializeField] private Transform leftRightTransform;
-    [SerializeField] private float sensitivity = 100f;
-    [SerializeField] private float minYRot, maxYRot;
-    [SerializeField] private Rigidbody rb;
-    [SerializeField] private float movementSpeed;
     [SerializeField] private CinemachineVirtualCamera virtualCam;
     [SerializeField] private AudioListener audioListener;
     [SerializeField] private Phone phone;
+    [SerializeField] private CharacterController controller;
+
+    [Header("Player")]
+    [SerializeField] private float MoveSpeed = 4.0f;
+    [SerializeField] private float RotationSpeed = 1.0f;
+
+    [Header("Cinemachine")]
+    [SerializeField] private Transform upDownTransform;
+    [SerializeField] private float TopClamp = 90.0f;
+    [SerializeField] private float BottomClamp = -90.0f;
+
+    private float targetPitch;
+    private float rotationVelocity;
 
     private BaseInteractable currentInteractable;
-
-    private float mouseX;
-    private float mouseY;
-    private float rotation = 0f;
-    private Vector3 movementInput;
 
     public override void OnNetworkSpawn()
     {
@@ -59,6 +61,12 @@ public class NetworkPlayer : NetworkBehaviour
         {
             return;
         }
+        HandleInteractions();
+        HandleMovement();
+    }
+
+    private void HandleInteractions()
+    {
         TryGetCurrentInteractableAndHighlight();
         if (currentInteractable != null && Input.GetMouseButtonDown(0))
         {
@@ -66,35 +74,46 @@ public class NetworkPlayer : NetworkBehaviour
         }
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         if (!IsOwner)
         {
             return;
         }
-        mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-
-        rotation -= mouseY;
-        rotation = Mathf.Clamp(rotation, minYRot, maxYRot);
-        upDownTransform.localRotation = Quaternion.Euler(rotation, 0, 0);
-        leftRightTransform.Rotate(Vector3.up * mouseX);
+        CameraRotation();
     }
 
-    public void FixedUpdate()
+    private void CameraRotation()
     {
-        if (!IsOwner)
-        {
-            return;
-        }
-        HandleMovement();
+        Vector2 _input = new Vector2(Input.GetAxis("Mouse X") * Time.deltaTime, -Input.GetAxis("Mouse Y") * Time.deltaTime);
+
+        targetPitch += _input.y * RotationSpeed;
+        rotationVelocity = _input.x * RotationSpeed;
+
+        targetPitch = ClampAngle(targetPitch, BottomClamp, TopClamp);
+        upDownTransform.localRotation = Quaternion.Euler(targetPitch, 0.0f, 0.0f);
+        transform.Rotate(Vector3.up * rotationVelocity);
+    }
+
+    private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
+    {
+        if (lfAngle < -360f)
+            lfAngle += 360f;
+        if (lfAngle > 360f)
+            lfAngle -= 360f;
+        return Mathf.Clamp(lfAngle, lfMin, lfMax);
     }
 
     private void HandleMovement()
-    {
-        movementInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-        Vector3 _moveVector = transform.TransformDirection(movementInput) * movementSpeed;
-        rb.velocity = new Vector3(_moveVector.x, rb.velocity.y, _moveVector.z);
+    {      
+        Vector2 _movementVector = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector3 inputDirection = new Vector3(_movementVector.x, 0.0f, _movementVector.y).normalized;
+
+        if (_movementVector != Vector2.zero)
+        {
+            inputDirection = transform.right * _movementVector.x + transform.forward * _movementVector.y;
+        }
+        controller.Move(inputDirection * MoveSpeed * Time.deltaTime);
     }
 
     private void TryGetCurrentInteractableAndHighlight()

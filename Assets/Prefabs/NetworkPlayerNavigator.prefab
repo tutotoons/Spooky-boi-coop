@@ -461,11 +461,10 @@ GameObject:
   - component: {fileID: 8994898858729714348}
   - component: {fileID: 8994898858729714351}
   - component: {fileID: 8994898858729714350}
-  - component: {fileID: 8994898858729714346}
-  - component: {fileID: 8994898858729714344}
+  - component: {fileID: 7352872771213815722}
   - component: {fileID: 8235405792396291832}
-  - component: {fileID: 6142408223715796562}
   - component: {fileID: 6188067411060522095}
+  - component: {fileID: 8994898858729714344}
   m_Layer: 0
   m_Name: NetworkPlayerNavigator
   m_TagString: Untagged
@@ -554,50 +553,24 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &8994898858729714346
-Rigidbody:
+--- !u!143 &7352872771213815722
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8994898858729714336}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 1e+16
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
---- !u!114 &8994898858729714344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8994898858729714336}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4509a5dce3c95644184c50d636bdb112, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerType: 1
-  interactPos: {fileID: 6586789085279862452}
-  interactionMask:
-    serializedVersion: 2
-    m_Bits: 8
-  interactionRange: 5
-  upDownTransform: {fileID: 2522666830018112579}
-  leftRightTransform: {fileID: 8994898858729714349}
-  sensitivity: 300
-  minYRot: -80
-  maxYRot: 90
-  rb: {fileID: 8994898858729714346}
-  movementSpeed: 10
-  virtualCam: {fileID: 6130117631192329574}
-  audioListener: {fileID: 3349593877667335017}
-  phone: {fileID: 0}
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8235405792396291832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,9 +586,9 @@ MonoBehaviour:
   SyncPositionX: 1
   SyncPositionY: 1
   SyncPositionZ: 1
-  SyncRotAngleX: 1
+  SyncRotAngleX: 0
   SyncRotAngleY: 1
-  SyncRotAngleZ: 1
+  SyncRotAngleZ: 0
   SyncScaleX: 0
   SyncScaleY: 0
   SyncScaleZ: 0
@@ -628,18 +601,6 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &6142408223715796562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8994898858729714336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6188067411060522095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,3 +621,31 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &8994898858729714344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994898858729714336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4509a5dce3c95644184c50d636bdb112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerType: 1
+  interactPos: {fileID: 6586789085279862452}
+  interactionMask:
+    serializedVersion: 2
+    m_Bits: 8
+  interactionRange: 5
+  virtualCam: {fileID: 6130117631192329574}
+  audioListener: {fileID: 3349593877667335017}
+  phone: {fileID: 0}
+  controller: {fileID: 7352872771213815722}
+  MoveSpeed: 4
+  RotationSpeed: 350
+  SpeedChangeRate: 10
+  upDownTransform: {fileID: 2522666830018112579}
+  TopClamp: 90
+  BottomClamp: -90

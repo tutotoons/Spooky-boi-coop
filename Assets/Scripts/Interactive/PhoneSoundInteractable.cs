@@ -5,6 +5,7 @@ using UnityEngine;
 public class PhoneSoundInteractable : BaseInteractable
 {
     [SerializeField] private SoundType sound;
+    [SerializeField] private float heat;
 
     public override void Interact()
     {

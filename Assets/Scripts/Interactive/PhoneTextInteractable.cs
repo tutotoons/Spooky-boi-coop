@@ -6,6 +6,7 @@ public class PhoneTextInteractable : BaseInteractable
 {
     [SerializeField] private string message;
     [SerializeField] private float duration;
+    [SerializeField] private float heat;
 
     public override void Interact()
     {
