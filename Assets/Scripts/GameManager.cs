@@ -1,21 +1,34 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using TMPro;
 using Unity.Netcode;
-using Unity.Netcode.Samples;
+using Unity.Netcode.Transports.UTP;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private TMP_InputField ipField;
+    [SerializeField] GameObject connectScreen;
+    private string ip;
+
+    private void Start()
+    {
+        ip = "0.0.0.0";
+        SetIpAddress();
+    }
+
+    private void SetIpAddress()
+    {
+        NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address = ip;
+    }
+
     private void OnGUI()
     {
         GUILayout.BeginArea(new Rect(10, 10, 300, 300));
-        
-        if (!IsConnected())
-        {
-            Buttons();
-        }
-        else
+
+        if (IsConnected())
         {
             StatusLabels();
         }
@@ -26,25 +39,35 @@ public class GameManager : MonoBehaviour
     private void StatusLabels()
     {
         string _status = NetworkManager.Singleton.IsHost ? "Host" : NetworkManager.Singleton.IsServer ? "Server" : "Client";
-        GUILayout.Label(_status);
+        GUILayout.Label($"{ip}{_status}");
     }
 
-    private static void Buttons()
+    public void StartHost()
     {
-        if (GUILayout.Button("Host"))
+        connectScreen.SetActive(false);
+        NetworkManager.Singleton.StartHost();
+        GetLocalIp();
+    }
+
+    private void GetLocalIp()
+    {
+        var host = Dns.GetHostEntry(Dns.GetHostName());
+        foreach (var _ip in host.AddressList)
         {
-            NetworkManager.Singleton.StartHost();
+            if (_ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+            {
+                ip = _ip.ToString();
+                return;
+            }
         }
 
-        if (GUILayout.Button("Client"))
-        {
-            NetworkManager.Singleton.StartClient();
-        }
+        throw new Exception("network problem pls fix");
+    }
 
-        if (GUILayout.Button("Server"))
-        {
-            NetworkManager.Singleton.StartServer();
-        }
+    public void StartClient()
+    {
+        connectScreen.SetActive(false);
+        NetworkManager.Singleton.StartClient();
     }
 
     private bool IsConnected()

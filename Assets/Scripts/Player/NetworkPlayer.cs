@@ -5,8 +5,15 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
+public enum PlayerType
+{
+    Explorer,
+    Navigator
+}
+
 public class NetworkPlayer : NetworkBehaviour
 {
+    [SerializeField] private PlayerType playerType;
     [SerializeField] private Transform interactPos;
     [SerializeField] private LayerMask interactionMask;
     [SerializeField] private float interactionRange;
@@ -18,6 +25,7 @@ public class NetworkPlayer : NetworkBehaviour
     [SerializeField] private float movementSpeed;
     [SerializeField] private CinemachineVirtualCamera virtualCam;
     [SerializeField] private AudioListener audioListener;
+    [SerializeField] private Phone phone;
 
     private BaseInteractable currentInteractable;
 
@@ -33,6 +41,14 @@ public class NetworkPlayer : NetworkBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             audioListener.enabled = true;
             virtualCam.Priority = 1;
+            if (playerType == PlayerType.Explorer)
+            {
+                phone?.Init();
+            }
+            else
+            {
+                phone?.gameObject.SetActive(false);
+            }
         }
         else
         {
