@@ -24,12 +24,10 @@ public class DoorInteractionListener : BaseInteractionListener
         }
         if (_state)
         {
-            Debug.Log($"opening door");
             animator.SetTrigger("Open");
         }
         else
         {
-            Debug.Log($"closing door");
             animator.SetTrigger("Close");
         }
         currentState = _state;

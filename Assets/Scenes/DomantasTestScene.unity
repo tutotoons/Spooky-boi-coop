@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942b3ef6f8ce1b4478abcd388f2e8e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monster: {fileID: 0}
 --- !u!4 &10299816
 Transform:
   m_ObjectHideFlags: 0
@@ -2383,6 +2384,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 911849968870312743, guid: 3c03eee3e9d8bba449a618e31c7299cb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 911849968870312743, guid: 3c03eee3e9d8bba449a618e31c7299cb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.16
+      objectReference: {fileID: 0}
     - target: {fileID: 2671957906449285240, guid: 3c03eee3e9d8bba449a618e31c7299cb,
         type: 3}
       propertyPath: GlobalObjectIdHash
@@ -2451,12 +2462,12 @@ PrefabInstance:
     - target: {fileID: 6457771540256676711, guid: 3c03eee3e9d8bba449a618e31c7299cb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.11
+      value: -2.14
       objectReference: {fileID: 0}
     - target: {fileID: 6457771540256676711, guid: 3c03eee3e9d8bba449a618e31c7299cb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.97
+      value: 14.59
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c03eee3e9d8bba449a618e31c7299cb, type: 3}

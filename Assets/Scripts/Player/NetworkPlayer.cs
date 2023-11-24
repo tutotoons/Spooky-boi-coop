@@ -48,8 +48,6 @@ public class NetworkPlayer : NetworkBehaviour
             audioListener.enabled = false;
             virtualCam.Priority = 0;
         }
-
-        Debug.Log($" trying to init phone {phone != null} owner:{IsOwner} isServer:{IsServer}");
         phone?.Init();
     }
 
