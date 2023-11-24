@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class BaseEntity : NetworkBehaviour
 {
-    private static WaitForSeconds waitForSecondsToInitialize = new WaitForSeconds(0.1f);
+    private static readonly WaitForSeconds waitForSecondsToInitialize = new WaitForSeconds(0.1f);
 
     [SerializeField] protected PatrolRouteManager patrolRouteManager;
     [SerializeField] protected ColliderTrigger detectionConeTrigger;
@@ -24,7 +24,8 @@ public class BaseEntity : NetworkBehaviour
     protected PatrolState patrol;
     protected ChaseState chase;
     protected IdleState idle;
-    protected float totalHeat;
+
+    protected NetworkVariable<float> totalHeat = new NetworkVariable<float>();
 
     private Transform target;
     private bool initialized;
@@ -33,6 +34,11 @@ public class BaseEntity : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        if (!IsServer && !IsHost)
+        {
+            return;
+        }
+
         StartCoroutine(FindPlayerAndInitializeCoroutine());
     }
 
@@ -46,7 +52,6 @@ public class BaseEntity : NetworkBehaviour
         chase = new ChaseState(navMeshAgent, target, detectionConeTrigger);
         patrol = new PatrolState(navMeshAgent, patrolRouteManager);
         idle = new IdleState(navMeshAgent);
-
 
         stateMachine.AddTransition(idle, patrol, idle.IdleTimerOver);
         stateMachine.AddTransition(patrol, idle, patrol.PatrolTimerRunOut);
@@ -77,12 +82,18 @@ public class BaseEntity : NetworkBehaviour
 
     public void AddHeat(float value)
     {
-        totalHeat = Mathf.Clamp(totalHeat + value, 0, float.MaxValue);
+        AddHeatServerRpc(value);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void AddHeatServerRpc(float value)
+    {
+        totalHeat.Value = Mathf.Clamp(totalHeat.Value + value, 0, float.MaxValue);
     }
 
     private bool HeatThresholdReached()
     {
-        return totalHeat > maxHeat;
+        return totalHeat.Value > maxHeat;
     }
 
     private void Update()
