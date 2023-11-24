@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a1b26cad3832e354fa3f019ffb473385, type: 2}
+  - {fileID: 2100000, guid: eb4e2c506118a664d9085d19f83606fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 6142408223715796562}
   - component: {fileID: 6188067411060522095}
   m_Layer: 0
-  m_Name: NetworkPlayer
+  m_Name: NetworkPlayerNavigator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
