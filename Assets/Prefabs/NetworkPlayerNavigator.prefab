@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4516997264953166895}
   - component: {fileID: 8114073195772251662}
   - component: {fileID: 1270941242526104828}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6586789085279862452}
   - component: {fileID: 6130117631192329574}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 3349593877667335017}
   - component: {fileID: 1287124904490709129}
   - component: {fileID: 2825191867540737515}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 5743750892367182319}
   - component: {fileID: 8155239455871760032}
   - component: {fileID: 5264990955755841069}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2522666830018112579}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraPlacement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 8235405792396291832}
   - component: {fileID: 6188067411060522095}
   - component: {fileID: 8994898858729714344}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NetworkPlayerNavigator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,9 +640,12 @@ MonoBehaviour:
     m_Bits: 8
   interactionRange: 5
   virtualCam: {fileID: 6130117631192329574}
+  cinemachineBrain: {fileID: 0}
   audioListener: {fileID: 3349593877667335017}
   phone: {fileID: 0}
   controller: {fileID: 7352872771213815722}
+  playerCamera: {fileID: 0}
+  povRenderTexture: {fileID: 0}
   MoveSpeed: 4
   RotationSpeed: 350
   upDownTransform: {fileID: 2522666830018112579}

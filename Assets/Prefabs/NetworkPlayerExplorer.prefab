@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4516997264953166895}
   - component: {fileID: 8114073195772251662}
   - component: {fileID: 1270941242526104828}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6586789085279862452}
   - component: {fileID: 6130117631192329574}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 3349593877667335017}
   - component: {fileID: 1287124904490709129}
   - component: {fileID: 2825191867540737515}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 5743750892367182319}
   - component: {fileID: 8155239455871760032}
   - component: {fileID: 5264990955755841069}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2522666830018112579}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraPlacement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 8235405792396291832}
   - component: {fileID: 6188067411060522095}
   - component: {fileID: 8994898858729714344}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NetworkPlayerExplorer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -664,20 +664,50 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3336006737216443175, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133093038790728317, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5190209088481391475, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 8152012087164419645}
+    - target: {fileID: 5908328126637940857, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6769287921724133085, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6776441852964404612, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135239302942826515, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7403195876296508776, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
       propertyPath: m_Name
       value: Phone (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403195876296508776, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7923731427436928978, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
@@ -748,6 +778,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 3.742
+      objectReference: {fileID: 0}
+    - target: {fileID: 8427542251382224000, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1615973452507750300, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28, type: 3}
