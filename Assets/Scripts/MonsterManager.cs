@@ -1,17 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterManager : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    public static MonsterManager Instance;
 
-    // Update is called once per frame
-    void Update()
+    public BaseEntity monster;
+
+    private void Awake()
     {
-        
+        Instance = this;
     }
 }

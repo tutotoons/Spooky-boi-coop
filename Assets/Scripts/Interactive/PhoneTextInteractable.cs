@@ -18,5 +18,6 @@ public class PhoneTextInteractable : BaseInteractable
         AnimateInteraction();
 
         Phone.Instance?.DisplayTextServerRpc(message, duration);
+        MonsterManager.Instance.monster.AddHeat(heat);
     }
 }
