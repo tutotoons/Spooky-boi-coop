@@ -8,12 +8,12 @@ public class IdleState : IState
 
     public IdleState(NavMeshAgent _agent)
     {
-        timer = 3f;
         agent = _agent;
     }
 
     public void OnEnter()
     {
+        timer = 3f;
         agent.isStopped = true;
     }
 
