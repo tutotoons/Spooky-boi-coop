@@ -641,9 +641,12 @@ MonoBehaviour:
     m_Bits: 8
   interactionRange: 5
   virtualCam: {fileID: 6130117631192329574}
+  cinemachineBrain: {fileID: 2825191867540737515}
   audioListener: {fileID: 3349593877667335017}
   phone: {fileID: 3415141456293869741}
   controller: {fileID: 3504012216663875053}
+  playerCamera: {fileID: 8152012087164419645}
+  povRenderTexture: {fileID: 8400000, guid: 635aefaed99f2492d8939d93a2e22bfe, type: 2}
   MoveSpeed: 4
   RotationSpeed: 350
   upDownTransform: {fileID: 2522666830018112579}

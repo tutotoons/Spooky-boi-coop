@@ -6,8 +6,6 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class BaseEntity : NetworkBehaviour
 {
-    private static readonly WaitForSeconds waitForSecondsToInitialize = new WaitForSeconds(0.1f);
-
     [SerializeField] protected PatrolRouteManager patrolRouteManager;
     [SerializeField] protected ColliderTrigger detectionConeTrigger;
     [SerializeField] protected NavMeshAgent navMeshAgent;
@@ -39,7 +37,7 @@ public class BaseEntity : NetworkBehaviour
             return;
         }
 
-        StartCoroutine(FindPlayerAndInitializeCoroutine());
+        StartCoroutine(PlayerUtils.FindPlayerDoAction(PlayerType.Explorer, OnFoundPlayerExplorer));
     }
 
     public virtual void Initialize(Transform _target)
@@ -68,27 +66,9 @@ public class BaseEntity : NetworkBehaviour
         initialized = true;
     }
 
-    private IEnumerator FindPlayerAndInitializeCoroutine()
+    private void OnFoundPlayerExplorer(NetworkPlayer player)
     {
-        NetworkPlayer explorerPlayer = null;
-
-        while(explorerPlayer == null)
-        {
-            NetworkPlayer[] players = FindObjectsOfType<NetworkPlayer>();
-
-            foreach(NetworkPlayer player in players)
-            {
-                if(player.PlayerType == PlayerType.Explorer)
-                {
-                    explorerPlayer = player;
-                    break;
-                }
-            }
-
-            yield return waitForSecondsToInitialize;
-        }
-
-        Initialize(explorerPlayer.transform);
+        Initialize(player.transform);
     }
 
     public void AddHeat(float value)

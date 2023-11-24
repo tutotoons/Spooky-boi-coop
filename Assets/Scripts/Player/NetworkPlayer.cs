@@ -17,9 +17,12 @@ public class NetworkPlayer : NetworkBehaviour
     [SerializeField] private LayerMask interactionMask;
     [SerializeField] private float interactionRange;
     [SerializeField] private CinemachineVirtualCamera virtualCam;
+    [SerializeField] private CinemachineBrain cinemachineBrain;
     [SerializeField] private AudioListener audioListener;
     [SerializeField] private Phone phone;
     [SerializeField] private CharacterController controller;
+    [SerializeField] private Camera playerCamera;
+    [SerializeField] private RenderTexture povRenderTexture;
 
     [Header("Player")]
     [SerializeField] private float MoveSpeed = 4.0f;
@@ -45,8 +48,14 @@ public class NetworkPlayer : NetworkBehaviour
         }
         else
         {
+            cinemachineBrain.enabled = false;
+            virtualCam.enabled = false;
+
             audioListener.enabled = false;
             virtualCam.Priority = 0;
+
+            playerCamera.targetTexture = povRenderTexture;
+            playerCamera.forceIntoRenderTexture = true;
         }
         phone?.Init();
     }
