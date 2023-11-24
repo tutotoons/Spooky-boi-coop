@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/DomantasTestScene.unity
     guid: acfde40cd62330d4a8e7982438e95b6c
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 9ad99a2a292d71a4fa7250720c52e599
   m_configObjects: {}
