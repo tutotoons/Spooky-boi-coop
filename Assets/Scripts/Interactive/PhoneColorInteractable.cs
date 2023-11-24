@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhoneColorInteractable : BaseInteractable
+public class PhoneColorInteractable : BaseToggleInteractable
 {
     [SerializeField] private Color color;
     [SerializeField] private float duration;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhoneSoundInteractable : BaseInteractable
+public class PhoneSoundInteractable : BaseToggleInteractable
 {
     [SerializeField] private SoundType sound;
     [SerializeField] private float heat;

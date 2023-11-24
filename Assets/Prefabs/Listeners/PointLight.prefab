@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59693187972b4e4f81520d6d9fcb1f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingState: 0
   lightObj: {fileID: 8028995601455216305}
   timeToTurnOff: 5
 --- !u!114 &-7638889551605180169

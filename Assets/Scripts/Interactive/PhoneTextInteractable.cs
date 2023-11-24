@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhoneTextInteractable : BaseInteractable
+public class PhoneTextInteractable : BaseToggleInteractable
 {
     [SerializeField] private string message;
     [SerializeField] private float duration;
