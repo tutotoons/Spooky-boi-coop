@@ -1,6 +1,7 @@
 using System;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider))]
 public class BaseInteractable : NetworkBehaviour
@@ -10,6 +11,8 @@ public class BaseInteractable : NetworkBehaviour
     [SerializeField] protected Animator animator;
     [SerializeField] protected float interactionCooldown;
     [SerializeField] private Outline outline;
+    [SerializeField] private UnityEvent InteractUnityEvent;
+
     protected float timer;
     protected bool CanInteract() => timer <= 0f;
 
@@ -26,8 +29,13 @@ public class BaseInteractable : NetworkBehaviour
 
     public virtual void Interact()
     {
-        InteractEvent?.Invoke(this);
-        AnimateInteractionServerRpc();
+        if(CanInteract())
+        {
+            InteractUnityEvent?.Invoke();
+            InteractEvent?.Invoke(this);
+            AnimateInteractionServerRpc();
+            return;
+        }
     }
 
     [ServerRpc(RequireOwnership = false)]
