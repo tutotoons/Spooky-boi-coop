@@ -47,9 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd4974d670524756863465b5805a790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ipField: {fileID: 6701491368102598693}
+  joinField: {fileID: 6701491368102598693}
   gameStartUI: {fileID: 6701491368924208038}
   playerUI: {fileID: 7521335727576684341}
+  relay: {fileID: 0}
 --- !u!1 &6383360937925964581
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.5000038}
+  m_AnchoredPosition: {x: 0, y: -0.5}
   m_SizeDelta: {x: -20, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6701491368012777823
@@ -664,7 +665,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: enter host ip...
+  m_text: enter join code..
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9688ff75831a69b45bff7091627fed0c, type: 2}
   m_sharedMaterial: {fileID: 7752593260660066762, guid: 9688ff75831a69b45bff7091627fed0c,

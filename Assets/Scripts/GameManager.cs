@@ -9,23 +9,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField ipField;
+    [SerializeField] private TMP_InputField joinField;
     [SerializeField] GameObject gameStartUI;
     [SerializeField] GameObject playerUI;
+    [SerializeField] RelayController relay;
 
-    private string ip;
+    private string joinCode;
 
     private void Start()
     {
-        GetLocalIp();
-        ipField.text = ip;
-        TrySetIpAddress();
+        relay.Initialize();
+        joinField.text = joinCode;
     }
 
-    private void TrySetIpAddress()
-    {
-        NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address = ip;
-    }
 
     private void OnGUI()
     {
@@ -42,39 +38,28 @@ public class GameManager : MonoBehaviour
     private void StatusLabels()
     {
         string _status = NetworkManager.Singleton.IsHost ? "Host" : NetworkManager.Singleton.IsServer ? "Server" : "Client";
-        GUILayout.Label($"{ip} {_status}");
+        GUILayout.Label($"{joinCode} {_status}");
     }
 
     public void StartHost()
     {
-        gameStartUI.SetActive(false);
-        GetLocalIp();
-        NetworkManager.Singleton.StartHost();
-        playerUI.SetActive(true);
-    }
-
-    private void GetLocalIp()
-    {
-        var host = Dns.GetHostEntry(Dns.GetHostName());
-        foreach (var _ip in host.AddressList)
+        relay.CreateRelay((_joinCode) => 
         {
-            if (_ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
-            {
-                ip = _ip.ToString();
-                return;
-            }
-        }
-
-        throw new Exception("network problem pls fix");
+            joinCode = _joinCode;
+            gameStartUI.SetActive(false);
+            playerUI.SetActive(true);
+        });
     }
 
     public void StartClient()
     {
-        gameStartUI.SetActive(false);
-        ip = ipField.text;
-        TrySetIpAddress();
-        NetworkManager.Singleton.StartClient();
-        playerUI.SetActive(true);
+        joinCode = joinField.text;
+
+        relay.JoinRelay(joinCode ,() =>
+        {
+            gameStartUI.SetActive(false);
+            playerUI.SetActive(true);
+        });
     }
 
     private bool IsConnected()
