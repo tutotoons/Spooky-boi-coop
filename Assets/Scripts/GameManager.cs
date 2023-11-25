@@ -10,17 +10,19 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TMP_InputField ipField;
-    [SerializeField] GameObject connectScreen;
+    [SerializeField] GameObject gameStartUI;
+    [SerializeField] GameObject playerUI;
+
     private string ip;
 
-    
     private void Start()
     {
-        ip = "0.0.0.0";
-        SetIpAddress();
+        GetLocalIp();
+        ipField.text = ip;
+        TrySetIpAddress();
     }
 
-    private void SetIpAddress()
+    private void TrySetIpAddress()
     {
         NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address = ip;
     }
@@ -45,9 +47,10 @@ public class GameManager : MonoBehaviour
 
     public void StartHost()
     {
-        connectScreen.SetActive(false);
+        gameStartUI.SetActive(false);
         GetLocalIp();
         NetworkManager.Singleton.StartHost();
+        playerUI.SetActive(true);
     }
 
     private void GetLocalIp()
@@ -67,10 +70,11 @@ public class GameManager : MonoBehaviour
 
     public void StartClient()
     {
-        connectScreen.SetActive(false);
+        gameStartUI.SetActive(false);
         ip = ipField.text;
-        SetIpAddress();
+        TrySetIpAddress();
         NetworkManager.Singleton.StartClient();
+        playerUI.SetActive(true);
     }
 
     private bool IsConnected()
