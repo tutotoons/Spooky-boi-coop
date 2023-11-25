@@ -45,6 +45,13 @@ public class NetworkPlayer : NetworkBehaviour
     [SerializeField] private float TopClamp = 90.0f;
     [SerializeField] private float BottomClamp = -90.0f;
 
+    [Header("Footsteps")]
+    [SerializeField] private AudioSource footstepSource;
+    [SerializeField] private AudioClip[] footstepClips;
+    [SerializeField] private float footstepDistanceThreshold = 0.5f;
+
+    private Vector3 previousFootstepPosition = new Vector3(-99999, -99999);
+    private int footstepIndex;
     private float targetPitch;
     private float rotationVelocity;
     private float verticalVelocity;
@@ -79,10 +86,13 @@ public class NetworkPlayer : NetworkBehaviour
 
     virtual public void Update()
     {
+        HandleFootsteps();
+
         if (!IsOwner)
         {
             return;
         }
+
         HandleInteractions();
         JumpAndGravity();
         GroundedCheck();
@@ -180,6 +190,20 @@ public class NetworkPlayer : NetworkBehaviour
             inputDirection = transform.right * _movementVector.x + transform.forward * _movementVector.y;
         }
         controller.Move(inputDirection * MoveSpeed * Time.deltaTime + new Vector3(0.0f, verticalVelocity, 0.0f) * Time.deltaTime);
+    }
+
+    private void HandleFootsteps()
+    {
+        if(Vector3.Distance(transform.position, previousFootstepPosition) > footstepDistanceThreshold)
+        {
+            previousFootstepPosition = transform.position;
+
+            if(footstepSource != null && footstepClips.Length > 0)
+            {
+                footstepSource.PlayOneShot(footstepClips[footstepIndex % footstepClips.Length]);
+                footstepIndex++;
+            }
+        }
     }
 
     private void TryGetCurrentInteractableAndHighlight()
