@@ -53,7 +53,10 @@ public class PatrolState : IState
 
         if(agent.destination != routeManager.ActiveRoute.points[index].position)
         {
-            agent.SetDestination(routeManager.ActiveRoute.points[index].position);
+            if(!agent.SetDestination(routeManager.ActiveRoute.points[index].position))
+            {
+                ChangeDestination();
+            }
         }
     }
 
