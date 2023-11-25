@@ -81,6 +81,13 @@ public class NetworkPlayer : NetworkBehaviour
                 playerCamera.forceIntoRenderTexture = true;
             }
         }
+
+        if (playerType == PlayerType.Explorer)
+        {
+            
+        }
+
+        LightManager.Instance.SetActivePlayer(transform);
         phone?.Init();
     }
 
