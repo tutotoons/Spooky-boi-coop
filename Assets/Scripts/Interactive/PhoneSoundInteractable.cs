@@ -13,6 +13,9 @@ public class PhoneSoundInteractable : BaseToggleInteractable
         {
             return;
         }
+
+        base.Interact();
+
         timer = interactionCooldown;
         AnimateInteraction();
 

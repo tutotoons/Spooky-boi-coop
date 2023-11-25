@@ -14,6 +14,9 @@ public class PhoneColorInteractable : BaseToggleInteractable
         {
             return;
         }
+
+        base.Interact();
+
         timer = interactionCooldown;
         AnimateInteraction();
 

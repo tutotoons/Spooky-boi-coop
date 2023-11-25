@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using Unity.Netcode;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public class BaseInteractable : NetworkBehaviour
 {
+    public event Action<BaseInteractable> InteractEvent;
+
     [SerializeField] protected float interactionCooldown;
     [SerializeField] private Outline outline;
     protected float timer;
@@ -18,7 +19,7 @@ public class BaseInteractable : NetworkBehaviour
 
     public virtual void Interact()
     {
-
+        InteractEvent?.Invoke(this);
     }
 
     public void StopHighlight()

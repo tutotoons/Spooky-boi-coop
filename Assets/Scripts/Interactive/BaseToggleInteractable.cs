@@ -26,6 +26,9 @@ public class BaseToggleInteractable : BaseInteractable
         {
             return;
         }
+
+        base.Interact();
+
         timer = interactionCooldown;
         AnimateInteraction();
 

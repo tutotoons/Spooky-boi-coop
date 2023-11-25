@@ -14,6 +14,9 @@ public class BaseSequenceInteractable : BaseInteractable
         {
             return;
         }
+
+        base.Interact();
+
         timer = interactionCooldown;
         AnimateInteraction();
 

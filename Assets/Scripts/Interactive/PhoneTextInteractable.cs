@@ -14,6 +14,9 @@ public class PhoneTextInteractable : BaseToggleInteractable
         {
             return;
         }
+
+        base.Interact();
+
         timer = interactionCooldown;
         AnimateInteraction();
 
