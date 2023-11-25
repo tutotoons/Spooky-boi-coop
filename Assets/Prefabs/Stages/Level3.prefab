@@ -31267,27 +31267,11 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1239
+  m_VersionIndex: 1242
   m_IsSelectable: 1
-  m_SelectedFaces: c10100008e020000
-  m_SelectedEdges:
-  - a: 1724
-    b: 1725
-  - a: 1726
-    b: 1724
-  - a: 1725
-    b: 1727
-  - a: 1727
-    b: 1726
-  - a: 2518
-    b: 2519
-  - a: 2520
-    b: 2518
-  - a: 2519
-    b: 2521
-  - a: 2521
-    b: 2520
-  m_SelectedVertices: bc060000bd060000be060000bf060000d6090000d7090000d8090000d9090000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!114 &1565684865180411276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45277,6 +45261,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4200878360066163931, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
+        type: 3}
+      propertyPath: startingState
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0dfd920c3fcbb047b96bc537ad4d51d, type: 3}
 --- !u!4 &3456207646622909836 stripped
@@ -45313,6 +45302,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpotlightListener (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
+        type: 3}
+      propertyPath: startingState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
@@ -45454,6 +45448,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4200878360066163931, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
+        type: 3}
+      propertyPath: startingState
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0dfd920c3fcbb047b96bc537ad4d51d, type: 3}
 --- !u!114 &3456207646462865874 stripped
@@ -45490,6 +45489,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpotlightListener (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
+        type: 3}
+      propertyPath: startingState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
@@ -45576,6 +45580,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpotlightListener (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
+        type: 3}
+      propertyPath: startingState
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_RootOrder
@@ -45660,6 +45669,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpotlightListener (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
+        type: 3}
+      propertyPath: startingState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
@@ -45888,6 +45902,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4200878360066163931, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
+        type: 3}
+      propertyPath: startingState
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0dfd920c3fcbb047b96bc537ad4d51d, type: 3}
 --- !u!4 &3456207645638341436 stripped
@@ -45968,6 +45987,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4200878360066163931, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
+        type: 3}
+      propertyPath: startingState
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0dfd920c3fcbb047b96bc537ad4d51d, type: 3}
 --- !u!4 &3456207645594018977 stripped
@@ -45992,6 +46016,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpotlightListener (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
+        type: 3}
+      propertyPath: startingState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
@@ -46078,6 +46107,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpotlightListener (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
+        type: 3}
+      propertyPath: startingState
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_RootOrder
@@ -46162,6 +46196,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpotlightListener (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
+        type: 3}
+      propertyPath: startingState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
@@ -46303,6 +46342,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4200878360066163931, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
+        type: 3}
+      propertyPath: startingState
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0dfd920c3fcbb047b96bc537ad4d51d, type: 3}
 --- !u!4 &3456207644969310016 stripped
@@ -46327,6 +46371,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpotlightListener
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
+        type: 3}
+      propertyPath: startingState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
