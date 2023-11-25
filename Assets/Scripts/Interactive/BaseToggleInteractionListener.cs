@@ -9,7 +9,7 @@ public class BaseToggleInteractionListener : NetworkBehaviour
 {
     NetworkVariable<bool> networkState = new NetworkVariable<bool>(); 
     [SerializeField] protected bool startingState;
-    [SerializeField] UnityEvent OnEnable, OnDisable;
+    [SerializeField] protected UnityEvent OnEnable, OnDisable;
 
     protected bool currentState;
 

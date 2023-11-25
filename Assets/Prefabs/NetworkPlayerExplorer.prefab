@@ -1073,6 +1073,14 @@ MonoBehaviour:
   MoveSpeed: 4
   RotationSpeed: 350
   lives: 3
+  JumpHeight: 0.2
+  Gravity: -30
+  Grounded: 1
+  GroundedOffset: 0.75
+  GroundedRadius: 0.5
+  GroundLayers:
+    serializedVersion: 2
+    m_Bits: 1
   upDownTransform: {fileID: 2522666830018112579}
   TopClamp: 90
   BottomClamp: -90
@@ -1244,7 +1252,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1279,7 +1287,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

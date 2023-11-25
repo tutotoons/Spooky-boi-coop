@@ -32,13 +32,23 @@ public class NetworkPlayer : NetworkBehaviour
     [SerializeField] private float RotationSpeed = 1.0f;
     [SerializeField] private int lives = 3;
 
-    [Header("Cinemachine")]
+    [Header("Jumping and gravity")]
+    [SerializeField] private float JumpHeight = 1.2f;
+    [SerializeField] private float Gravity = -15.0f;
+    [SerializeField] private bool Grounded = true;
+    [SerializeField] private float GroundedOffset = -0.14f;
+    [SerializeField] private float GroundedRadius = 0.5f;
+    [SerializeField] private LayerMask GroundLayers;
+
+    [Header("looking around")]
     [SerializeField] private Transform upDownTransform;
     [SerializeField] private float TopClamp = 90.0f;
     [SerializeField] private float BottomClamp = -90.0f;
 
     private float targetPitch;
     private float rotationVelocity;
+    private float verticalVelocity;
+    private float terminalVelocity = 53.0f;
 
     private BaseInteractable currentInteractable;
 
@@ -49,6 +59,7 @@ public class NetworkPlayer : NetworkBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             audioListener.enabled = true;
             virtualCam.Priority = 1;
+
         }
         else
         {
@@ -73,6 +84,8 @@ public class NetworkPlayer : NetworkBehaviour
             return;
         }
         HandleInteractions();
+        JumpAndGravity();
+        GroundedCheck();
         HandleMovement();
     }
 
@@ -130,6 +143,33 @@ public class NetworkPlayer : NetworkBehaviour
         return Mathf.Clamp(lfAngle, lfMin, lfMax);
     }
 
+    private void GroundedCheck()
+    {
+        Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
+        Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+    }
+
+    private void JumpAndGravity()
+    {
+        if (Grounded)
+        {
+            if (verticalVelocity < 0.0f)
+            {
+                verticalVelocity = -2f;
+            }
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+            }
+        }
+
+        if (verticalVelocity < terminalVelocity)
+        {
+            verticalVelocity += Gravity * Time.deltaTime;
+        }
+    }
+
     private void HandleMovement()
     {      
         Vector2 _movementVector = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -139,7 +179,7 @@ public class NetworkPlayer : NetworkBehaviour
         {
             inputDirection = transform.right * _movementVector.x + transform.forward * _movementVector.y;
         }
-        controller.Move(inputDirection * MoveSpeed * Time.deltaTime);
+        controller.Move(inputDirection * MoveSpeed * Time.deltaTime + new Vector3(0.0f, verticalVelocity, 0.0f) * Time.deltaTime);
     }
 
     private void TryGetCurrentInteractableAndHighlight()
