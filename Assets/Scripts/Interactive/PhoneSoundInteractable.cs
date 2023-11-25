@@ -17,7 +17,7 @@ public class PhoneSoundInteractable : BaseToggleInteractable
         base.Interact();
 
         timer = interactionCooldown;
-        AnimateInteraction();
+        AnimateInteractionServerRpc();
 
         Phone.Instance?.PlaySoundServerRpc(sound);
         MonsterManager.Instance?.monster.AddHeat(heat);

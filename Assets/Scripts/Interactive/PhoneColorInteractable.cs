@@ -18,7 +18,7 @@ public class PhoneColorInteractable : BaseToggleInteractable
         base.Interact();
 
         timer = interactionCooldown;
-        AnimateInteraction();
+        AnimateInteractionServerRpc();
 
         Phone.Instance?.DisplayColorServerRpc(color, duration);
         MonsterManager.Instance?.monster.AddHeat(heat);

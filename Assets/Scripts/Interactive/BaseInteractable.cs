@@ -7,6 +7,7 @@ public class BaseInteractable : NetworkBehaviour
 {
     public event Action<BaseInteractable> InteractEvent;
 
+    [SerializeField] private Animator animator;
     [SerializeField] protected float interactionCooldown;
     [SerializeField] private Outline outline;
     protected float timer;
@@ -17,9 +18,28 @@ public class BaseInteractable : NetworkBehaviour
         timer -= Time.deltaTime;
     }
 
+    public virtual void AnimateInteraction()
+    {
+        animator.SetTrigger("Interact");
+        timer = interactionCooldown;
+    }
+
     public virtual void Interact()
     {
         InteractEvent?.Invoke(this);
+        AnimateInteractionServerRpc();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    protected void AnimateInteractionServerRpc()
+    {
+        AnimateInteractionClientRpc();
+    }
+
+    [ClientRpc]
+    private void AnimateInteractionClientRpc()
+    {
+        AnimateInteraction();
     }
 
     public void StopHighlight()

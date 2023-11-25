@@ -18,7 +18,7 @@ public class PhoneTextInteractable : BaseToggleInteractable
         base.Interact();
 
         timer = interactionCooldown;
-        AnimateInteraction();
+        AnimateInteractionServerRpc();
 
         Phone.Instance?.DisplayTextServerRpc(message, duration);
         MonsterManager.Instance?.monster.AddHeat(heat);

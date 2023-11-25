@@ -18,16 +18,11 @@ public class BaseSequenceInteractable : BaseInteractable
         base.Interact();
 
         timer = interactionCooldown;
-        AnimateInteraction();
+        AnimateInteractionServerRpc();
 
         foreach (BaseSequenceInteractionListener _interactive in interactives)
         {
             _interactive.Activate(sequenceNumber);
         }
-    }
-
-    public virtual void AnimateInteraction()
-    {
-        animator.SetTrigger("Interact");
     }
 }

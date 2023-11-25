@@ -16,7 +16,7 @@ public class BaseToggleInteractable : BaseInteractable
     }
 
     [SerializeField] private InteractableType interactableType;
-    [SerializeField] private Animator animator;
+    
     [SerializeField] private BaseToggleInteractionListener[] interactives;
     private bool previousState;
 
@@ -28,20 +28,13 @@ public class BaseToggleInteractable : BaseInteractable
         }
 
         base.Interact();
-
-        timer = interactionCooldown;
-        AnimateInteraction();
+        AnimateInteractionServerRpc();
 
         bool _state = GetState();
         foreach (BaseToggleInteractionListener _interactive in interactives)
         {
             _interactive.Activate(_state);
         }
-    }
-
-    public virtual void AnimateInteraction()
-    {
-        animator.SetTrigger("Interact");
     }
 
     public virtual bool GetState()
