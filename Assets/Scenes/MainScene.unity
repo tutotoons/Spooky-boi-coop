@@ -976,6 +976,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 361834989}
+    - target: {fileID: 8989947628834542825, guid: faba688adedeb3844b0d409a3641e837,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 9096529016811165330, guid: faba688adedeb3844b0d409a3641e837,
         type: 3}
       propertyPath: GlobalObjectIdHash
