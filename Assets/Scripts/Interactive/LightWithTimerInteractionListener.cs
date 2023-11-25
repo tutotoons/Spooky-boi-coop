@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightWithTimerInteractionListener : BaseToggleInteractionListener, IDynamicLight
+public class LightWithTimerInteractionListener : BaseToggleInteractionListener
 {
     [SerializeField] private Light lightObj;
     [SerializeField] private float timeToTurnOff;
-    [SerializeField] private GameObject lightParent;
+    [SerializeField] private Transform lightParent;
 
     private float timer;
 
@@ -16,28 +16,12 @@ public class LightWithTimerInteractionListener : BaseToggleInteractionListener, 
         lightObj.gameObject.SetActive(_state);
         timer = timeToTurnOff;
     }
+
     public override void OnNetworkSpawn()
     {
-        base.OnNetworkDespawn();
-        Initialize();
+        base.OnNetworkSpawn();
+        LightManager.Instance?.AddLight(lightParent);
     }
-
-    public void Initialize()
-    {
-        LightManager.Instance.AddLight(this);
-    }
-
-    public void Disable()
-    {
-        lightParent.SetActive(false);
-    }
-
-    public void Enable()
-    {
-        lightParent.SetActive(true);
-    }
-
-    public float GetDistance(Vector3 pos) => (transform.position - pos).sqrMagnitude; 
 
     private void Update()
     {

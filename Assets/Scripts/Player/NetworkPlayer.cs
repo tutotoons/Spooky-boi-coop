@@ -84,10 +84,9 @@ public class NetworkPlayer : NetworkBehaviour
 
         if (playerType == PlayerType.Explorer)
         {
-            
+            LightManager.Instance?.SetActivePlayer(transform);
         }
 
-        LightManager.Instance.SetActivePlayer(transform);
         phone?.Init();
     }
 

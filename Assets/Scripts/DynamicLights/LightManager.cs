@@ -12,14 +12,14 @@ public class LightManager : MonoBehaviour
 
     private float timer;
     private Transform playerTransform;
-    private List<IDynamicLight> lights;
+    private List<Transform> lights;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            lights = new List<IDynamicLight>();
+            lights = new List<Transform>();
         }
         else
         {
@@ -32,10 +32,10 @@ public class LightManager : MonoBehaviour
         playerTransform = _playerTransform;
     }
 
-    public void AddLight(IDynamicLight _light)
+    public void AddLight(Transform _light)
     {
         lights.Add(_light);
-        _light.Disable();
+        _light.gameObject.SetActive(false);
     }
 
     private void LateUpdate()
@@ -57,22 +57,17 @@ public class LightManager : MonoBehaviour
         }
         timer = 1f / refreshRatePerSecond;
         Vector3 _playerPos = playerTransform.position;
-        lights.OrderBy(v => v.GetDistance(_playerPos));
-        int addedCount = 0;
-        for (int i = lights.Count - 1; i >= 0; i--)
+        lights = lights.OrderBy(v => (v.transform.position - _playerPos).sqrMagnitude).ToList();
+        for (int i = 0; i < lights.Count; i++)
         {
-            if (addedCount < allowedAmount)
+            if (i < allowedAmount)
             {
-                lights[i].Enable();
-                addedCount++;
+                lights[i].gameObject.SetActive(true);
             }
             else
             {
-                lights[i].Disable();
+                lights[i].gameObject.SetActive(false);
             }
         }
-
-        Debug.Log($"light update");
-
     }
 }

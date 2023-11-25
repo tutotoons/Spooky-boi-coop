@@ -170,7 +170,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   lightObj: {fileID: 1754915318376698904}
-  lightParent: {fileID: 1754915318376698911}
+  lightParent: {fileID: 1754915318376698906}
 --- !u!114 &4599126893628107656
 MonoBehaviour:
   m_ObjectHideFlags: 0

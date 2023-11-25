@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowedAmount: 5
-  refreshRatePerSecond: 0.5
+  refreshRatePerSecond: 4

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightInteractionListener : BaseToggleInteractionListener, IDynamicLight
+public class LightInteractionListener : BaseToggleInteractionListener
 {
     [SerializeField] private Light lightObj;
-    [SerializeField] private GameObject lightParent;
+    [SerializeField] private Transform lightParent;
 
     public override void Animate(bool _state)
     {
@@ -14,23 +14,8 @@ public class LightInteractionListener : BaseToggleInteractionListener, IDynamicL
 
     public override void OnNetworkSpawn()
     {
-        base.OnNetworkDespawn();
-        Initialize();
-    }
-
-    public void Initialize()
-    {
-        LightManager.Instance.AddLight(this);
-    }
-
-    public void Disable()
-    {
-        lightParent.SetActive(false);
-    }
-
-    public void Enable()
-    {
-        lightParent.SetActive(true);
+        base.OnNetworkSpawn();
+        LightManager.Instance?.AddLight(lightParent);
     }
 
     public float GetDistance(Vector3 pos) => (transform.position - pos).sqrMagnitude;
