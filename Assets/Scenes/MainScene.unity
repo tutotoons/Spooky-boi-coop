@@ -125,6 +125,124 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: e9b329e690813493a8bb293723f1f00f, type: 2}
+--- !u!1 &19497098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 19497099}
+  - component: {fileID: 19497101}
+  - component: {fileID: 19497100}
+  m_Layer: 0
+  m_Name: Teleport trigger (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &19497099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19497098}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27.974592, y: 46.090004, z: 0.025657654}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1842931827}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &19497100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19497098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd05480e5dfa4f218aae7f3c12b1a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compareTag: Player
+--- !u!65 &19497101
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19497098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 47.49414, y: 5, z: 28.43666}
+  m_Center: {x: 1.1382866, y: 0, z: 0.12756348}
+--- !u!1 &72545191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 72545192}
+  - component: {fileID: 72545194}
+  - component: {fileID: 72545193}
+  m_Layer: 0
+  m_Name: Teleport trigger (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &72545192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72545191}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 79.8, y: 46.090004, z: 4.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1842931827}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &72545193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72545191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd05480e5dfa4f218aae7f3c12b1a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compareTag: Player
+--- !u!65 &72545194
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72545191}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16.903587, y: 5, z: 27.880508}
+  m_Center: {x: -13.044687, y: 0, z: -5.608055}
 --- !u!1 &276824244 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2151640534163381931, guid: 74269048e031ef943a0fba42ba6fe193,
@@ -274,7 +392,7 @@ GameObject:
   - component: {fileID: 345826225}
   - component: {fileID: 345826224}
   m_Layer: 0
-  m_Name: Teleport Away 1
+  m_Name: Teleport Away (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1262,6 +1380,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &559650096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 559650097}
+  - component: {fileID: 559650099}
+  - component: {fileID: 559650098}
+  m_Layer: 0
+  m_Name: Teleport trigger (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &559650097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559650096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 46.090004, z: 0.025657654}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1842931827}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &559650098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559650096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd05480e5dfa4f218aae7f3c12b1a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compareTag: Player
+--- !u!65 &559650099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559650096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.732334, y: 5, z: 45.798027}
+  m_Center: {x: -13.740149, y: 0, z: -14.566814}
 --- !u!1001 &566420564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1450,6 +1627,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 345826223}
+  - {fileID: 1710742977}
+  - {fileID: 1022168891}
+  - {fileID: 763868224}
   m_Father: {fileID: 347762753}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1843,6 +2023,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33d92ec624d029f44919b9fc76138ae1, type: 3}
+--- !u!1 &763868223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 763868224}
+  m_Layer: 0
+  m_Name: Teleport Away (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &763868224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763868223}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 61.93416, y: 46.089996, z: -9.913925}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 655455415}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &814295899
 Mesh:
   m_ObjectHideFlags: 0
@@ -2379,6 +2590,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1740951222}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1022168890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1022168891}
+  m_Layer: 0
+  m_Name: Teleport Away (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1022168891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022168890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.004837, y: 46.089996, z: -23.259613}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 655455415}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1042410342
@@ -4080,6 +4322,96 @@ Transform:
   m_Father: {fileID: 347762753}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1588857393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1588857394}
+  - component: {fileID: 1588857396}
+  - component: {fileID: 1588857395}
+  m_Layer: 0
+  m_Name: Teleport trigger (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1588857394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588857393}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 37, y: 46.090004, z: -24.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1842931827}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1588857395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588857393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd05480e5dfa4f218aae7f3c12b1a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compareTag: Player
+--- !u!65 &1588857396
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588857393}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 35.253777, y: 5, z: 17.382294}
+  m_Center: {x: -13.928226, y: 0, z: -5.041794}
+--- !u!1 &1710742976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1710742977}
+  m_Layer: 0
+  m_Name: Teleport Away (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1710742977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710742976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -26.44886, y: 46.090004, z: 3.1407547}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 655455415}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1740951221
 GameObject:
   m_ObjectHideFlags: 0
@@ -4443,6 +4775,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47036442abc70fb468fd66e1e1cd32d7, type: 3}
+--- !u!1 &1842931826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1842931827}
+  m_Layer: 0
+  m_Name: Teleport Triggers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1842931827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842931826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 19497099}
+  - {fileID: 559650097}
+  - {fileID: 72545192}
+  - {fileID: 1588857394}
+  m_Father: {fileID: 347762753}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1848470834
 GameObject:
   m_ObjectHideFlags: 0
@@ -5033,6 +5400,56 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1893892339652590417, guid: 96be839b8bcdf284499c0acfdaf13cb4,
+        type: 3}
+      propertyPath: mainTeleportPoint
+      value: 
+      objectReference: {fileID: 345826223}
+    - target: {fileID: 1893892339652590417, guid: 96be839b8bcdf284499c0acfdaf13cb4,
+        type: 3}
+      propertyPath: teleportData.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893892339652590417, guid: 96be839b8bcdf284499c0acfdaf13cb4,
+        type: 3}
+      propertyPath: teleportData.Array.data[0].trigger
+      value: 
+      objectReference: {fileID: 19497100}
+    - target: {fileID: 1893892339652590417, guid: 96be839b8bcdf284499c0acfdaf13cb4,
+        type: 3}
+      propertyPath: teleportData.Array.data[1].trigger
+      value: 
+      objectReference: {fileID: 559650098}
+    - target: {fileID: 1893892339652590417, guid: 96be839b8bcdf284499c0acfdaf13cb4,
+        type: 3}
+      propertyPath: teleportData.Array.data[2].trigger
+      value: 
+      objectReference: {fileID: 72545193}
+    - target: {fileID: 1893892339652590417, guid: 96be839b8bcdf284499c0acfdaf13cb4,
+        type: 3}
+      propertyPath: teleportData.Array.data[3].trigger
+      value: 
+      objectReference: {fileID: 1588857395}
+    - target: {fileID: 1893892339652590417, guid: 96be839b8bcdf284499c0acfdaf13cb4,
+        type: 3}
+      propertyPath: teleportData.Array.data[0].teleportPoint
+      value: 
+      objectReference: {fileID: 1710742977}
+    - target: {fileID: 1893892339652590417, guid: 96be839b8bcdf284499c0acfdaf13cb4,
+        type: 3}
+      propertyPath: teleportData.Array.data[1].teleportPoint
+      value: 
+      objectReference: {fileID: 345826223}
+    - target: {fileID: 1893892339652590417, guid: 96be839b8bcdf284499c0acfdaf13cb4,
+        type: 3}
+      propertyPath: teleportData.Array.data[2].teleportPoint
+      value: 
+      objectReference: {fileID: 1588857394}
+    - target: {fileID: 1893892339652590417, guid: 96be839b8bcdf284499c0acfdaf13cb4,
+        type: 3}
+      propertyPath: teleportData.Array.data[3].teleportPoint
+      value: 
+      objectReference: {fileID: 72545192}
     - target: {fileID: 2095160886344585359, guid: 96be839b8bcdf284499c0acfdaf13cb4,
         type: 3}
       propertyPath: GlobalObjectIdHash
@@ -5112,6 +5529,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897461294053513915, guid: 96be839b8bcdf284499c0acfdaf13cb4,
+        type: 3}
+      propertyPath: defaultSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4897461294053513915, guid: 96be839b8bcdf284499c0acfdaf13cb4,
         type: 3}
