@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1076566075329019906
+--- !u!1 &2848503341968580996
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,60 +8,63 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1076566075329019933}
-  - component: {fileID: 1076566075329019932}
-  - component: {fileID: 1076566075329019935}
+  - component: {fileID: 2848503341968581019}
+  - component: {fileID: 2848503341968581018}
+  - component: {fileID: 2848503341968581017}
+  - component: {fileID: 4414656277736965389}
+  - component: {fileID: 1423000936788419528}
   m_Layer: 0
-  m_Name: SequenceDoorListener
+  m_Name: ToggleDoorStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1076566075329019933
+--- !u!4 &2848503341968581019
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076566075329019906}
+  m_GameObject: {fileID: 2848503341968580996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.0585823, y: -3.8643823, z: -3.5973983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4604963401680620277}
+  - {fileID: 1630105454173285235}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1076566075329019932
+--- !u!114 &2848503341968581018
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076566075329019906}
+  m_GameObject: {fileID: 2848503341968580996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9ebbb2bfdfb5f94aa9f3c2f5c199d39, type: 3}
+  m_Script: {fileID: 11500000, guid: b95602c33437e764091589b71dfe992b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingState: 0
-  sequenceCount: 3
-  OnSequenceComplete:
+  startingState: 1
+  OnEnable:
     m_PersistentCalls:
       m_Calls: []
-  OnSequenceFail:
+  OnDisable:
     m_PersistentCalls:
       m_Calls: []
-  animator: {fileID: 6359254683449635516}
---- !u!114 &1076566075329019935
+  animator: {fileID: 8158215645615674170}
+  coll: {fileID: 1423000936788419528}
+  navMeshObstacle: {fileID: 4414656277736965389}
+--- !u!114 &2848503341968581017
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076566075329019906}
+  m_GameObject: {fileID: 2848503341968580996}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
@@ -75,12 +78,41 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!1001 &5483853926369024469
+--- !u!208 &4414656277736965389
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848503341968580996}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 1.1, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 1.18, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!65 &1423000936788419528
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848503341968580996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2.2, z: 0.2}
+  m_Center: {x: 0, y: 1.18, z: 0}
+--- !u!1001 &7308710533038782547
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1076566075329019933}
+    m_TransformParent: {fileID: 2848503341968581019}
     m_Modifications:
     - target: {fileID: 8354896147541807904, guid: 77147f4f93f6ebe47b2e7c428389d2a9,
         type: 3}
@@ -149,50 +181,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77147f4f93f6ebe47b2e7c428389d2a9, type: 3}
---- !u!1 &3793101244884144207 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8699086870110407066, guid: 77147f4f93f6ebe47b2e7c428389d2a9,
-    type: 3}
-  m_PrefabInstance: {fileID: 5483853926369024469}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &509572051836600463
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3793101244884144207}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2.2, z: 0.2}
-  m_Center: {x: 0, y: 1.18, z: 0}
---- !u!208 &20918848315651225
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3793101244884144207}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1, y: 1.1, z: 0.1}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 0
-  m_Center: {x: 0, y: 1.18, z: 0}
-  m_TimeToStationary: 0.5
---- !u!4 &4604963401680620277 stripped
+--- !u!4 &1630105454173285235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8354896147541807904, guid: 77147f4f93f6ebe47b2e7c428389d2a9,
     type: 3}
-  m_PrefabInstance: {fileID: 5483853926369024469}
+  m_PrefabInstance: {fileID: 7308710533038782547}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &6359254683449635516 stripped
+--- !u!95 &8158215645615674170 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1466498262937267049, guid: 77147f4f93f6ebe47b2e7c428389d2a9,
     type: 3}
-  m_PrefabInstance: {fileID: 5483853926369024469}
+  m_PrefabInstance: {fileID: 7308710533038782547}
   m_PrefabAsset: {fileID: 0}
