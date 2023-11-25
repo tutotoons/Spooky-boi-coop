@@ -21,6 +21,10 @@ public class BaseToggleInteractionListener : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        if (IsServer)
+        {
+            networkState.Value = startingState;
+        }
         networkState.OnValueChanged += OnStateChanged;
     }
 
@@ -29,13 +33,13 @@ public class BaseToggleInteractionListener : NetworkBehaviour
         networkState.OnValueChanged -= OnStateChanged;
     }
 
-    public void Activate(bool _state)
+    public virtual void Activate(bool _state)
     {
         ActivateServerRpc(_state);
     }
 
     [ServerRpc(RequireOwnership = false)]
-    private void ActivateServerRpc(bool _state)
+    public virtual void ActivateServerRpc(bool _state)
     {
         networkState.Value = _state;
     }

@@ -18,6 +18,6 @@ public class PhoneColorInteractable : BaseToggleInteractable
         AnimateInteraction();
 
         Phone.Instance?.DisplayColorServerRpc(color, duration);
-        MonsterManager.Instance.monster.AddHeat(heat);
+        MonsterManager.Instance?.monster.AddHeat(heat);
     }
 }
