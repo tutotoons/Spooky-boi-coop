@@ -24,7 +24,6 @@ public class DoorInteractionListener : BaseToggleInteractionListener
         {
             animator.SetTrigger("Close");
         }
-
         coll.enabled = !_state;
         navMeshObstacle.enabled = !_state;
         currentState = _state;

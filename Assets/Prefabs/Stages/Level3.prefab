@@ -2831,6 +2831,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1000036860142332942}
   - {fileID: 1000036858939185629}
   - {fileID: 1000036859911603262}
   - {fileID: 1000036859570329563}
@@ -2843,7 +2844,6 @@ Transform:
   - {fileID: 3456207646622909836}
   - {fileID: 3456207645638341436}
   - {fileID: 3456207644969310016}
-  - {fileID: 1000036860142332942}
   m_Father: {fileID: 1565684863416848884}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45209,7 +45209,7 @@ PrefabInstance:
     - target: {fileID: 4200878360066163930, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4200878360066163930, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
         type: 3}
@@ -45261,11 +45261,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4200878360066163931, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
-        type: 3}
-      propertyPath: startingState
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0dfd920c3fcbb047b96bc537ad4d51d, type: 3}
 --- !u!4 &3456207646622909836 stripped
@@ -45293,25 +45288,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1565684864497955443}
     m_Modifications:
-    - target: {fileID: 1754915318376698911, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072197, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_Name
       value: SpotlightListener (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: startingState
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
@@ -45396,7 +45381,7 @@ PrefabInstance:
     - target: {fileID: 4200878360066163930, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4200878360066163930, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
         type: 3}
@@ -45448,11 +45433,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4200878360066163931, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
-        type: 3}
-      propertyPath: startingState
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0dfd920c3fcbb047b96bc537ad4d51d, type: 3}
 --- !u!114 &3456207646462865874 stripped
@@ -45480,25 +45460,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1565684864497955443}
     m_Modifications:
-    - target: {fileID: 1754915318376698911, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072197, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_Name
       value: SpotlightListener (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: startingState
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
@@ -45570,25 +45540,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1565684864497955443}
     m_Modifications:
-    - target: {fileID: 1754915318376698911, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072197, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_Name
       value: SpotlightListener (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: startingState
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
@@ -45660,25 +45620,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1565684864497955443}
     m_Modifications:
-    - target: {fileID: 1754915318376698911, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072197, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_Name
       value: SpotlightListener (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: startingState
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
@@ -45850,7 +45800,7 @@ PrefabInstance:
     - target: {fileID: 4200878360066163930, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4200878360066163930, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
         type: 3}
@@ -45902,11 +45852,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4200878360066163931, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
-        type: 3}
-      propertyPath: startingState
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0dfd920c3fcbb047b96bc537ad4d51d, type: 3}
 --- !u!4 &3456207645638341436 stripped
@@ -45935,7 +45880,7 @@ PrefabInstance:
     - target: {fileID: 4200878360066163930, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4200878360066163930, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
         type: 3}
@@ -45987,11 +45932,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4200878360066163931, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
-        type: 3}
-      propertyPath: startingState
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0dfd920c3fcbb047b96bc537ad4d51d, type: 3}
 --- !u!4 &3456207645594018977 stripped
@@ -46007,25 +45947,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1565684864497955443}
     m_Modifications:
-    - target: {fileID: 1754915318376698911, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072197, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_Name
       value: SpotlightListener (11)
       objectReference: {fileID: 0}
-    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: startingState
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
@@ -46097,25 +46027,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1565684864497955443}
     m_Modifications:
-    - target: {fileID: 1754915318376698911, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072197, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_Name
       value: SpotlightListener (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: startingState
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
@@ -46187,25 +46107,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1565684864497955443}
     m_Modifications:
-    - target: {fileID: 1754915318376698911, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072197, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_Name
       value: SpotlightListener (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: startingState
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
@@ -46290,7 +46200,7 @@ PrefabInstance:
     - target: {fileID: 4200878360066163930, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4200878360066163930, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
         type: 3}
@@ -46342,11 +46252,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4200878360066163931, guid: c0dfd920c3fcbb047b96bc537ad4d51d,
-        type: 3}
-      propertyPath: startingState
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0dfd920c3fcbb047b96bc537ad4d51d, type: 3}
 --- !u!4 &3456207644969310016 stripped
@@ -46362,25 +46267,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1565684864497955443}
     m_Modifications:
-    - target: {fileID: 1754915318376698911, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072197, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_Name
       value: SpotlightListener
       objectReference: {fileID: 0}
-    - target: {fileID: 1754915318464072198, guid: d08794b5a1180364dba7251e91562f71,
-        type: 3}
-      propertyPath: startingState
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1754915318464072199, guid: d08794b5a1180364dba7251e91562f71,
         type: 3}
