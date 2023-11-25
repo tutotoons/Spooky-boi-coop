@@ -16,7 +16,11 @@ public class TeleportState : IState
 
     public void OnEnter()
     {
-        agent.Move(agent.transform.position - teleportTarget.position);
+        if(teleportTarget != null)
+        {
+            agent.Move(agent.transform.position - teleportTarget.position);
+        }
+
         teleportedAway = true;
     }
 

@@ -7,14 +7,16 @@ public class ChaseState : IState
     private readonly NavMeshAgent agent;
     private readonly Transform target;
     private readonly ColliderTrigger detectionCone;
+    private readonly LayerMask ignoreRaycastLayerMask;
 
     private SearchState _searchState;
 
-    public ChaseState(NavMeshAgent _navMeshAgent, Transform _target, ColliderTrigger _detectionCone)
+    public ChaseState(NavMeshAgent _navMeshAgent, Transform _target, ColliderTrigger _detectionCone, LayerMask _ignoreRaycastLayerMask)
     {
         agent = _navMeshAgent;
         target = _target;
         detectionCone = _detectionCone;
+        ignoreRaycastLayerMask = _ignoreRaycastLayerMask;
 
         detectionCone.TriggerEnterEvent += OnDetectionEnter;
         detectionCone.TriggerExitEvent += OnDetectionExit;
@@ -63,8 +65,10 @@ public class ChaseState : IState
     {
         Vector3 direction = (target.position - agent.transform.position).normalized;
 
-        if (Physics.Raycast(agent.transform.position, direction, out RaycastHit hit))
+        if (Physics.Raycast(agent.transform.position, direction, out RaycastHit hit, 20, ~ignoreRaycastLayerMask))
         {
+            Debug.Log(hit.collider.name);
+
             if (hit.collider.TryGetComponent<NetworkPlayer>(out var player))
             {
                 _searchState = SearchState.FoundPlayer;

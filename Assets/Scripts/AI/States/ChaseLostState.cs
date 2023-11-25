@@ -6,15 +6,17 @@ public class SearchState : IState
     private readonly NavMeshAgent agent;
     private readonly Transform target;
     private readonly ColliderTrigger detectionCone;
+    private readonly LayerMask ignoreRaycastLayerMask;
 
     private State _state;
     private float _lostTimer;
 
-    public SearchState(NavMeshAgent _navMeshAgent, Transform _target, ColliderTrigger _detectionCone)
+    public SearchState(NavMeshAgent _navMeshAgent, Transform _target, ColliderTrigger _detectionCone, LayerMask _ignoreRaycastLayerMask)
     {
         agent = _navMeshAgent;
         target = _target;
         detectionCone = _detectionCone;
+        ignoreRaycastLayerMask = _ignoreRaycastLayerMask;
 
         detectionCone.TriggerEnterEvent += OnDetectionEnter;
         detectionCone.TriggerStayEvent += OnDetectionStay;
@@ -51,7 +53,6 @@ public class SearchState : IState
             return;
         }
 
-        Debug.Log("lost");
         _state = State.Lost;
     }
 
@@ -67,13 +68,12 @@ public class SearchState : IState
 
     private void DetectPlayer()
     {
-        Vector3 direction = (target.position - agent.transform.position).normalized * 20;
+        Vector3 direction = (target.position - agent.transform.position).normalized;
 
-        if (Physics.Raycast(agent.transform.position, direction, out RaycastHit hit))
+        if (Physics.Raycast(agent.transform.position, direction, out RaycastHit hit, 20, ~ignoreRaycastLayerMask))
         {
             if (hit.collider.TryGetComponent<NetworkPlayer>(out var player))
             {
-                Debug.Log("Found");
                 _state = State.Found;
             }
         }

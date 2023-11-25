@@ -12,6 +12,7 @@ public class BaseEntity : NetworkBehaviour
     [SerializeField] protected float defaultSpeed;
     [SerializeField] protected float stopDist;
     [SerializeField] protected Transform teleportAwayTarget;
+    [SerializeField] protected LayerMask ignoreRaycastMask;
 
     [Header("Tweaking")]
     [SerializeField] private float heatDecaySpeed;
@@ -48,9 +49,9 @@ public class BaseEntity : NetworkBehaviour
         stateMachine = new StateMachine();
 
         heatPursuitState = new HeatPursuitState(navMeshAgent, target);
-        search = new SearchState(navMeshAgent, target, detectionConeTrigger);
+        search = new SearchState(navMeshAgent, target, detectionConeTrigger, ignoreRaycastMask);
         teleport = new TeleportState(navMeshAgent, teleportAwayTarget);
-        chase = new ChaseState(navMeshAgent, target, detectionConeTrigger);
+        chase = new ChaseState(navMeshAgent, target, detectionConeTrigger, ignoreRaycastMask);
         patrol = new PatrolState(navMeshAgent, patrolRouteManager);
         idle = new IdleState(navMeshAgent);
 

@@ -162,6 +162,9 @@ MonoBehaviour:
   defaultSpeed: 7
   stopDist: 10
   teleportAwayTarget: {fileID: 0}
+  ignoreRaycastMask:
+    serializedVersion: 2
+    m_Bits: 64
   heatDecaySpeed: 0.05
   maxHeat: 1
 --- !u!114 &2095160886344585359

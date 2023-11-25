@@ -34,8 +34,6 @@ public class PatrolRouteManager : NetworkBehaviour
         {
             route.trigger.TriggerEnterEvent += () => OnTriggeredRoute(route);
         }
-
-        ActiveRoute = routes[0];
     }
 
 

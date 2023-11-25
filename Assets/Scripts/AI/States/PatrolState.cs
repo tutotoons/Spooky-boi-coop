@@ -46,6 +46,11 @@ public class PatrolState : IState
     {
         waitAfterTimer -= _delta;
 
+        if(routeManager.ActiveRoute == null)
+        {
+            return;
+        }
+
         if (agent.remainingDistance < AIUtils.DISTANCE_THRESHOLD)
         {
             ChangeDestination();
@@ -91,6 +96,11 @@ public class PatrolState : IState
 
     private void ChangeDestination()
     {
+        if(routeManager.ActiveRoute == null)
+        {
+            return;
+        }
+
         Transform[] patrolPoints = routeManager.ActiveRoute.points;
 
         index = (index + 1) % patrolPoints.Length;
