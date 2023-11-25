@@ -12,9 +12,8 @@ using UnityEngine;
 
 public class RelayController : MonoBehaviour
 {
-    public async void Initialize()
+    public async void Initialize(Action onComplete)
     {
-        Debug.Log($"init start");
         await UnityServices.InitializeAsync();
 
         AuthenticationService.Instance.SignedIn += () =>
@@ -23,8 +22,7 @@ public class RelayController : MonoBehaviour
         };
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
-        Debug.Log($"init end");
-
+        onComplete?.Invoke();
     }
 
     public async void CreateRelay(Action<string> onConnected)

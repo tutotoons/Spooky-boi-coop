@@ -15,10 +15,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] RelayController relay;
 
     private string joinCode;
+    private bool initialized;
 
     private void Start()
     {
-        relay.Initialize();
+        relay.Initialize(() => 
+        {
+            initialized = true;
+        });
         joinField.text = joinCode;
     }
 
@@ -43,6 +47,11 @@ public class GameManager : MonoBehaviour
 
     public void StartHost()
     {
+        if (!initialized)
+        {
+            return;
+        }
+
         relay.CreateRelay((_joinCode) => 
         {
             joinCode = _joinCode;
@@ -53,6 +62,11 @@ public class GameManager : MonoBehaviour
 
     public void StartClient()
     {
+        if (!initialized)
+        {
+            return;
+        }
+
         joinCode = joinField.text;
 
         relay.JoinRelay(joinCode ,() =>

@@ -6,6 +6,12 @@ public class ObjectiveManager : NetworkBehaviour
 {
     public event Action CompletedAllObjectives;
 
+    public static ObjectiveManager Instance
+    {
+        get;
+        private set;
+    }
+
     [SerializeField] private Objective[] objectives;
 
     private NetworkVariable<int> _index = new NetworkVariable<int>();
@@ -25,7 +31,7 @@ public class ObjectiveManager : NetworkBehaviour
     private void OnIndexValueChanged(int previousValue, int newValue)
     {
         objectives[previousValue].CompletedEvent -= OnCompletedObjective;
-        objectives[newValue].CompletedEvent -= OnCompletedObjective;
+        objectives[newValue].CompletedEvent += OnCompletedObjective;
     }
 
     private void OnCompletedObjective(Objective objective)

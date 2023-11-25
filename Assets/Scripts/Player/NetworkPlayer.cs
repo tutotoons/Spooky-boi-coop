@@ -86,7 +86,7 @@ public class NetworkPlayer : NetworkBehaviour
         {
             LightManager.Instance?.SetActivePlayer(transform);
         }
-
+        RadarManager.Instance.SetPlayer(transform);
         phone?.Init();
     }
 
