@@ -7,7 +7,7 @@ public class BaseInteractable : NetworkBehaviour
 {
     public event Action<BaseInteractable> InteractEvent;
 
-    [SerializeField] private Animator animator;
+    [SerializeField] protected Animator animator;
     [SerializeField] protected float interactionCooldown;
     [SerializeField] private Outline outline;
     protected float timer;

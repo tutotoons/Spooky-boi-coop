@@ -5,7 +5,6 @@ using UnityEngine;
 public class BaseSequenceInteractable : BaseInteractable
 {
     [SerializeField] int sequenceNumber;
-    [SerializeField] private Animator animator;
     [SerializeField] private BaseSequenceInteractionListener[] interactives;
 
     public override void Interact()

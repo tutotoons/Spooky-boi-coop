@@ -23,6 +23,7 @@ public class Phone : NetworkBehaviour
 
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private MeshRenderer phoneQuad;
+    [SerializeField] private Light lightObj;
 
     private float textTimer;
     private float colorTimer;

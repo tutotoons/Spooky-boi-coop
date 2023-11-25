@@ -16,8 +16,8 @@ public class BaseToggleInteractable : BaseInteractable
     }
 
     [SerializeField] private InteractableType interactableType;
-    
     [SerializeField] private BaseToggleInteractionListener[] interactives;
+
     private bool previousState;
 
     public override void Interact()
