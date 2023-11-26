@@ -14,19 +14,22 @@ public class ObjectiveManager : NetworkBehaviour
 
     [SerializeField] private Objective[] objectives;
 
-    private NetworkVariable<int> _index = new NetworkVariable<int>();
+    private NetworkVariable<int> _index = new NetworkVariable<int>(0);
 
     public override void OnNetworkSpawn()
     {
-        if(IsServer || IsHost)
+        if(IsServer)
         {
             _index.Value = 0;
         }
-        else
-        {
-            _index.OnValueChanged += OnIndexValueChanged;
-            OnIndexValueChanged(0, 0);
-        }
+
+        _index.OnValueChanged += OnIndexValueChanged;
+        OnIndexValueChanged(0, 0);
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        _index.OnValueChanged -= OnIndexValueChanged;
     }
 
     private void OnIndexValueChanged(int previousValue, int newValue)
