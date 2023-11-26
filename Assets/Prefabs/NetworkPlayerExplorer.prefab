@@ -1323,17 +1323,17 @@ PrefabInstance:
     - target: {fileID: 7923731427436928978, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.44
+      value: 0.421
       objectReference: {fileID: 0}
     - target: {fileID: 7923731427436928978, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.469
+      value: -0.362
       objectReference: {fileID: 0}
     - target: {fileID: 7923731427436928978, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.928
+      value: 0.679
       objectReference: {fileID: 0}
     - target: {fileID: 7923731427436928978, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
@@ -1505,6 +1505,9 @@ MonoBehaviour:
   text: {fileID: 7168377054402025470}
   phoneQuad: {fileID: 7547104377965794059}
   lightObj: {fileID: 4451999734383169398}
+  showPos: {x: 0.44, y: 0.469, z: 0.928}
+  hidePos: {x: 0.421, y: -0.362, z: 0.679}
+  isShown: 0
 --- !u!114 &7168377054402025470 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3353759345969378113, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,

@@ -59,6 +59,8 @@ public class NetworkPlayer : NetworkBehaviour
 
     private BaseInteractable currentInteractable;
 
+    private bool phoneWasShown;
+
     public override void OnNetworkSpawn()
     {
         if (IsOwner)
@@ -103,6 +105,16 @@ public class NetworkPlayer : NetworkBehaviour
         JumpAndGravity();
         GroundedCheck();
         HandleMovement();
+    }
+
+    public void ShowPhoneOnce()
+    {
+        if(phoneWasShown)
+        {
+            return;
+        }
+        phoneWasShown = true;
+        phone?.Show();
     }
 
     public void TakeLive()

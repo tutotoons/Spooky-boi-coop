@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -24,6 +26,8 @@ public class Phone : NetworkBehaviour
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private MeshRenderer phoneQuad;
     [SerializeField] private Light lightObj;
+    [SerializeField] private Vector3 showPos, hidePos;
+    [SerializeField] private bool isShown;
 
     private float textTimer;
     private float colorTimer;
@@ -33,6 +37,8 @@ public class Phone : NetworkBehaviour
         if (Instance == null)
         {
             Instance = this;
+            isShown = true;
+            Hide();
         }
         else
         {
@@ -43,6 +49,10 @@ public class Phone : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void PlaySoundServerRpc(SoundType _sound)
     {
+        if (!isShown)
+        {
+            return;
+        }
         PlaySoundClientRpc(_sound);
     }
 
@@ -60,6 +70,10 @@ public class Phone : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void DisplayTextServerRpc(string _text, float _duration)
     {
+        if (!isShown)
+        {
+            return;
+        }
         DisplayTextClientRpc(_text, _duration);
     }
 
@@ -80,6 +94,10 @@ public class Phone : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void DisplayColorServerRpc(Color _color, float _duration)
     {
+        if (!isShown)
+        {
+            return;
+        }
         DisplayColorClientRpc(_color, _duration);
     }
 
@@ -117,5 +135,33 @@ public class Phone : NetworkBehaviour
         {
             phoneQuad.enabled = false;
         }
+    }
+
+    internal void Show()
+    {
+        if (isShown)
+        {
+            return;
+        }
+        gameObject.SetActive(true);
+        transform.position = hidePos;
+        transform.DOLocalMove(showPos, 1f).SetEase(Ease.OutExpo).OnComplete(() =>
+        {
+            isShown = true;
+        });
+    }
+
+    private void Hide()
+    {
+        if (!isShown)
+        {
+            return;
+        }
+        transform.position = showPos;
+        transform.DOLocalMove(hidePos, 1f).SetEase(Ease.OutExpo).OnComplete(() =>
+        {
+            isShown = false;
+            gameObject.SetActive(false);
+        });
     }
 }
