@@ -32,8 +32,18 @@ public class ObjectiveManager : NetworkBehaviour
     private void OnIndexValueChanged(int previousValue, int newValue)
     {
         objectives[previousValue].CompletedEvent -= OnCompletedObjective;
-        objectives[newValue].CompletedEvent += OnCompletedObjective;
+        objectives[previousValue].UpdatedGoalEvent -= OnUpdatedObjectiveGoal;
+        objectives[previousValue].ResetEvent -= OnUpdatedObjectiveGoal;
 
+        objectives[newValue].CompletedEvent += OnCompletedObjective;
+        objectives[newValue].UpdatedGoalEvent += OnUpdatedObjectiveGoal;
+        objectives[newValue].ResetEvent += OnUpdatedObjectiveGoal;
+
+        SetRadarToCurrentObjective();
+    }
+
+    private void OnUpdatedObjectiveGoal(Objective objective)
+    {
         SetRadarToCurrentObjective();
     }
 
@@ -60,7 +70,7 @@ public class ObjectiveManager : NetworkBehaviour
     {
         if (objectives.Length > 0)
         {
-            RadarManager.Instance.SetObjective(objectives[_index.Value].transform);
+            RadarManager.Instance.SetObjective(objectives[_index.Value].GetTarget());
         }
     }
 

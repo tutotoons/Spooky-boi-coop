@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Objective : MonoBehaviour
 {
-    public event Action<Objective> ActivatedEvent;
+    public event Action<Objective> UpdatedGoalEvent;
     public event Action<Objective> CompletedEvent;
     public event Action<Objective> ResetEvent;
 
@@ -24,6 +24,8 @@ public class Objective : MonoBehaviour
 
     private void OnInteracted(BaseInteractable interactable)
     {
+        Debug.Log("On interact in state: " + _state.ToString());
+
         if(_state != State.Active)
         {
             return;
@@ -33,9 +35,13 @@ public class Objective : MonoBehaviour
         {
             _index++;
 
-            if(_index >= interactableSequence.Length)
+            if (_index >= interactableSequence.Length)
             {
                 CompleteObjective();
+            }
+            else
+            {
+                UpdatedGoalEvent?.Invoke(this);
             }
         }
         else
@@ -44,9 +50,14 @@ public class Objective : MonoBehaviour
         }
     }
 
-    public void ActivateObjective()
+    public Transform GetTarget()
     {
-        _state = State.Active;
+        if(interactableSequence.Length == 0)
+        {
+            return transform;
+        }
+
+        return interactableSequence[_index].transform;
     }
 
     public void ResetObjective()
@@ -67,7 +78,6 @@ public class Objective : MonoBehaviour
 
     public enum State
     {
-        None,
         Active,
         Completed
     }
