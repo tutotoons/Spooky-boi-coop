@@ -344,7 +344,7 @@ Transform:
   m_Children:
   - {fileID: 468657644}
   m_Father: {fileID: 8994898858729714349}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1547611263
 MonoBehaviour:
@@ -676,7 +676,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8994898858729714349}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6137094324463707717
 AudioSource:
@@ -915,9 +915,9 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 5
-  m_Range: 5
-  m_SpotAngle: 51.114017
-  m_InnerSpotAngle: 0
+  m_Range: 8
+  m_SpotAngle: 53.878494
+  m_InnerSpotAngle: 26.262547
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -1014,8 +1014,9 @@ Transform:
   m_Children:
   - {fileID: 6586789085279862452}
   - {fileID: 1197209200874169046}
+  - {fileID: 2307951223085284205}
   m_Father: {fileID: 8994898858729714349}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8994898858729714336
 GameObject:
@@ -1052,7 +1053,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2307951223085284205}
   - {fileID: 2522666830018112579}
   - {fileID: 1547611262}
   - {fileID: 4761818773315607235}
@@ -1252,7 +1252,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 8994898858729714349}
+    m_TransformParent: {fileID: 2522666830018112579}
     m_Modifications:
     - target: {fileID: 2687929736451422132, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
@@ -1307,7 +1307,7 @@ PrefabInstance:
     - target: {fileID: 7923731427436928978, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7923731427436928978, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
@@ -1327,17 +1327,17 @@ PrefabInstance:
     - target: {fileID: 7923731427436928978, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.421
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 7923731427436928978, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.362
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7923731427436928978, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.679
+      value: 0.928
       objectReference: {fileID: 0}
     - target: {fileID: 7923731427436928978, guid: 77c5ff6bba05f3f49ab2c249b5ecaf28,
         type: 3}
@@ -1509,8 +1509,8 @@ MonoBehaviour:
   text: {fileID: 7168377054402025470}
   phoneQuad: {fileID: 7547104377965794059}
   lightObj: {fileID: 4451999734383169398}
-  showPos: {x: 0.44, y: 0.469, z: 0.928}
-  hidePos: {x: 0.421, y: -0.362, z: 0.679}
+  showPos: {x: 0.44, y: -0.3, z: 0.928}
+  hidePos: {x: 0.44, y: -1, z: 0.928}
   shownAnimationDuration: 1
   showAnimationEase: 18
 --- !u!114 &7168377054402025470 stripped
