@@ -25,6 +25,7 @@ public class ObjectiveManager : NetworkBehaviour
         else
         {
             _index.OnValueChanged += OnIndexValueChanged;
+            OnIndexValueChanged(0, 0);
         }
     }
 
@@ -32,21 +33,38 @@ public class ObjectiveManager : NetworkBehaviour
     {
         objectives[previousValue].CompletedEvent -= OnCompletedObjective;
         objectives[newValue].CompletedEvent += OnCompletedObjective;
+
+        SetRadarToCurrentObjective();
     }
 
     private void OnCompletedObjective(Objective objective)
     {
-        if(_index.Value < objectives.Length)
+        if(_index.Value < objectives.Length - 1)
         {
             UpdateObjectiveServerRpc(_index.Value + 1);
         }
         else
         {
+            RadarManager.Instance.SetObjective(null);
             CompletedAllObjectives?.Invoke();
         }
     }
 
-    [ServerRpc]
+    private void SetRadarToCurrentObjective()
+    {
+        SetRadarToCurrentObjectiveServerRpc();
+    }
+    
+    [ServerRpc(RequireOwnership = false)]
+    private void SetRadarToCurrentObjectiveServerRpc()
+    {
+        if (objectives.Length > 0)
+        {
+            RadarManager.Instance.SetObjective(objectives[_index.Value].transform);
+        }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
     private void UpdateObjectiveServerRpc(int index)
     {
         _index.Value = index;

@@ -60,6 +60,8 @@ public class Objective : MonoBehaviour
     {
         _state = State.Completed;
 
+        Debug.Log("Completed objective with name: " + gameObject.name);
+
         CompletedEvent?.Invoke(this);
     }
 
