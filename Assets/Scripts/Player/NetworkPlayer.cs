@@ -43,9 +43,11 @@ public class NetworkPlayer : NetworkBehaviour
     [SerializeField] private LayerMask GroundLayers;
 
     [Header("looking around")]
-    [SerializeField] private Transform upDownTransform;
+    [SerializeField] private Transform camTransform;
     [SerializeField] private float TopClamp = 90.0f;
     [SerializeField] private float BottomClamp = -90.0f;
+    [SerializeField] private float bobbingSpeed = 10f;
+    [SerializeField] private float bobbingAmount = 0.05f;
 
     [Header("Footsteps")]
     [SerializeField] private AudioSource footstepSource;
@@ -58,15 +60,23 @@ public class NetworkPlayer : NetworkBehaviour
     private float rotationVelocity;
     private float verticalVelocity;
     private float terminalVelocity = 53.0f;
+    private Vector3 inputDirection;
+
 
     private BaseInteractable currentInteractable;
 
     private bool phoneWasShown;
 
+    private float bobbingDefaultPos = 0;
+    private float bobbingTimer = 0;
+
     public override void OnNetworkSpawn()
     {
         if (IsOwner)
         {
+            bobbingDefaultPos = camTransform.localPosition.y;
+
+
             foreach (Renderer _rend in renderers) //disable player model for owner
             {
                 _rend.enabled = false;
@@ -111,6 +121,21 @@ public class NetworkPlayer : NetworkBehaviour
         JumpAndGravity();
         GroundedCheck();
         HandleMovement();
+        HandleCameraBobbing();
+    }
+
+    private void HandleCameraBobbing()
+    {
+        if (Mathf.Abs(inputDirection.x) > 0.1f || Mathf.Abs(inputDirection.z) > 0.1f)
+        {
+            bobbingTimer += Time.deltaTime * bobbingSpeed;
+            camTransform.localPosition = new Vector3(camTransform.localPosition.x, bobbingDefaultPos + Mathf.Sin(bobbingTimer) * bobbingAmount, camTransform.localPosition.z);
+        }
+        else
+        {
+            bobbingTimer = 0;
+            camTransform.localPosition = new Vector3(camTransform.localPosition.x, Mathf.Lerp(camTransform.localPosition.y, bobbingDefaultPos, Time.deltaTime * bobbingSpeed), camTransform.localPosition.z);
+        }
     }
 
     public void ShowPhoneOnce()
@@ -164,7 +189,7 @@ public class NetworkPlayer : NetworkBehaviour
         rotationVelocity = _input.x * RotationSpeed;
 
         targetPitch = ClampAngle(targetPitch, BottomClamp, TopClamp);
-        upDownTransform.localRotation = Quaternion.Euler(targetPitch, 0.0f, 0.0f);
+        camTransform.localRotation = Quaternion.Euler(targetPitch, 0.0f, 0.0f);
         transform.Rotate(Vector3.up * rotationVelocity);
     }
 
@@ -207,7 +232,7 @@ public class NetworkPlayer : NetworkBehaviour
     private void HandleMovement()
     {      
         Vector2 _movementVector = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        Vector3 inputDirection = new Vector3(_movementVector.x, 0.0f, _movementVector.y).normalized;
+        inputDirection = new Vector3(_movementVector.x, 0.0f, _movementVector.y).normalized;
 
         if (_movementVector != Vector2.zero)
         {

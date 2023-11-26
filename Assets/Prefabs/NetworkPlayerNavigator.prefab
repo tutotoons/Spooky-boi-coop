@@ -739,6 +739,7 @@ MonoBehaviour:
   controller: {fileID: 7352872771213815722}
   playerCamera: {fileID: 8152012087164419645}
   povRenderTexture: {fileID: 8400000, guid: 635aefaed99f2492d8939d93a2e22bfe, type: 2}
+  renderers: []
   MoveSpeed: 4
   RotationSpeed: 350
   lives: 3
@@ -750,9 +751,11 @@ MonoBehaviour:
   GroundLayers:
     serializedVersion: 2
     m_Bits: 1
-  upDownTransform: {fileID: 2522666830018112579}
+  camTransform: {fileID: 2522666830018112579}
   TopClamp: 90
   BottomClamp: -90
+  bobbingSpeed: 10
+  bobbingAmount: 0.05
   footstepSource: {fileID: 1623341947439079473}
   footstepClips:
   - {fileID: 8300000, guid: 1c22aeac7ad5846bc94dd9e4dd756592, type: 3}
