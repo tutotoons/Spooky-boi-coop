@@ -6,6 +6,7 @@ using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,12 +14,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gameStartUI;
     [SerializeField] GameObject playerUI;
     [SerializeField] RelayController relay;
+    [SerializeField] GameObject menuArea;
 
     private string joinCode;
     private bool initialized;
 
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
         relay.Initialize(() => 
         {
             initialized = true;
