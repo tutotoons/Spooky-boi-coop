@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     private string joinCode;
     private bool initialized;
+    private bool canClickButtons;
 
     private void Start()
     {
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
         relay.Initialize(() => 
         {
             initialized = true;
+            canClickButtons = true;
         });
         joinField.text = joinCode;
     }
@@ -50,32 +52,46 @@ public class GameManager : MonoBehaviour
 
     public void StartHost()
     {
-        if (!initialized)
+        if (!initialized || !canClickButtons)
         {
             return;
         }
-
-        relay.CreateRelay((_joinCode) => 
+        canClickButtons = false;
+        relay.CreateRelay((_joinCode, _success) => 
         {
-            joinCode = _joinCode;
-            gameStartUI.SetActive(false);
-            playerUI.SetActive(true);
+            if (_success)
+            {
+                joinCode = _joinCode;
+                gameStartUI.SetActive(false);
+                playerUI.SetActive(true);
+            }
+            else
+            {
+                canClickButtons = true;
+            }
         });
     }
 
     public void StartClient()
     {
-        if (!initialized)
+        if (!initialized || !canClickButtons)
         {
             return;
         }
 
         joinCode = joinField.text;
-
-        relay.JoinRelay(joinCode ,() =>
+        canClickButtons = false;
+        relay.JoinRelay(joinCode ,(_success) =>
         {
-            gameStartUI.SetActive(false);
-            playerUI.SetActive(true);
+            if (_success)
+            {
+                gameStartUI.SetActive(false);
+                playerUI.SetActive(true);
+            }
+            else
+            {
+                canClickButtons = true;
+            }
         });
     }
 

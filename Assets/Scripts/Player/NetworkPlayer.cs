@@ -103,8 +103,8 @@ public class NetworkPlayer : NetworkBehaviour
         if (playerType == PlayerType.Explorer)
         {
             LightManager.Instance?.SetActivePlayer(transform);
+            RadarManager.Instance.SetPlayer(transform);
         }
-        RadarManager.Instance.SetPlayer(transform);
         phone?.Init();
     }
 

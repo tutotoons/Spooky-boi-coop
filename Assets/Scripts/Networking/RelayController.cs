@@ -25,7 +25,7 @@ public class RelayController : MonoBehaviour
         onComplete?.Invoke();
     }
 
-    public async void CreateRelay(Action<string> onConnected)
+    public async void CreateRelay(Action<string, bool> onConnected)
     {
         try
         {
@@ -36,15 +36,16 @@ public class RelayController : MonoBehaviour
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(serverData);
 
             NetworkManager.Singleton.StartHost();
-            onConnected?.Invoke(joinCode);
+            onConnected?.Invoke(joinCode, true);
         }
         catch (RelayServiceException e)
         {
             Debug.LogWarning(e);
+            onConnected?.Invoke("", false);
         }
     }
 
-    public async void JoinRelay(string _joinCode, Action onConnected)
+    public async void JoinRelay(string _joinCode, Action<bool> onConnected)
     {
         try
         {
@@ -53,11 +54,12 @@ public class RelayController : MonoBehaviour
             RelayServerData serverData = new RelayServerData(allocation, "dtls");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(serverData);
             NetworkManager.Singleton.StartClient();
-            onConnected?.Invoke();
+            onConnected?.Invoke(true);
         }
         catch (RelayServiceException e)
         {
             Debug.LogWarning(e);
+            onConnected?.Invoke(false);
         }
     }
 }
