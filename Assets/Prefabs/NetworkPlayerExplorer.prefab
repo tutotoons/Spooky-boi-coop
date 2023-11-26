@@ -1216,7 +1216,8 @@ MonoBehaviour:
   controller: {fileID: 3504012216663875053}
   playerCamera: {fileID: 8152012087164419645}
   povRenderTexture: {fileID: 8400000, guid: 635aefaed99f2492d8939d93a2e22bfe, type: 2}
-  renderers: []
+  renderers:
+  - {fileID: 8994898858729714351}
   MoveSpeed: 4
   RotationSpeed: 350
   lives: 3

@@ -26,7 +26,7 @@ public class NetworkPlayer : NetworkBehaviour
     [SerializeField] private CharacterController controller;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private RenderTexture povRenderTexture;
-    [SerializeField] private MeshRenderer[] renderers;
+    [SerializeField] private Renderer[] renderers;
 
 
     [Header("Player")]
