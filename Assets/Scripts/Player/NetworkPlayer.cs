@@ -26,6 +26,8 @@ public class NetworkPlayer : NetworkBehaviour
     [SerializeField] private CharacterController controller;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private RenderTexture povRenderTexture;
+    [SerializeField] private MeshRenderer[] renderers;
+
 
     [Header("Player")]
     [SerializeField] private float MoveSpeed = 4.0f;
@@ -65,6 +67,10 @@ public class NetworkPlayer : NetworkBehaviour
     {
         if (IsOwner)
         {
+            foreach (Renderer _rend in renderers) //disable player model for owner
+            {
+                _rend.enabled = false;
+            }
             Cursor.lockState = CursorLockMode.Locked;
             audioListener.enabled = true;
             virtualCam.Priority = 1;

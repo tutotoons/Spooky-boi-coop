@@ -27,7 +27,9 @@ public class Phone : NetworkBehaviour
     [SerializeField] private MeshRenderer phoneQuad;
     [SerializeField] private Light lightObj;
     [SerializeField] private Vector3 showPos, hidePos;
-    [SerializeField] private bool isShown;
+    [SerializeField] private float shownAnimationDuration;
+    [SerializeField] private Ease showAnimationEase = Ease.OutExpo;
+    private bool isShown;
 
     private float textTimer;
     private float colorTimer;
@@ -145,7 +147,7 @@ public class Phone : NetworkBehaviour
         }
         gameObject.SetActive(true);
         transform.position = hidePos;
-        transform.DOLocalMove(showPos, 1f).SetEase(Ease.OutExpo).OnComplete(() =>
+        transform.DOLocalMove(showPos, shownAnimationDuration).SetEase(showAnimationEase).OnComplete(() =>
         {
             isShown = true;
         });
@@ -158,7 +160,7 @@ public class Phone : NetworkBehaviour
             return;
         }
         transform.position = showPos;
-        transform.DOLocalMove(hidePos, 1f).SetEase(Ease.OutExpo).OnComplete(() =>
+        transform.DOLocalMove(hidePos, shownAnimationDuration).SetEase(showAnimationEase).OnComplete(() =>
         {
             isShown = false;
             gameObject.SetActive(false);
