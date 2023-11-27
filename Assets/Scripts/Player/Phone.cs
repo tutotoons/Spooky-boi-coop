@@ -2,9 +2,12 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
+using Color = UnityEngine.Color;
 
 public enum SoundType
 {
@@ -20,10 +23,12 @@ public class Phone : NetworkBehaviour
         private set;
     }
     [SerializeField] private AudioSource source;
-
     [SerializeField] private AudioClip[] clips;
 
-    [SerializeField] private TextMeshProUGUI text;
+
+    [SerializeField] private PhoneMessage messagePrefab;
+    [SerializeField] private RectTransform messageParent;
+    [SerializeField] private int allowedMessageCount;
     [SerializeField] private MeshRenderer phoneQuad;
     [SerializeField] private Light lightObj;
     [SerializeField] private Vector3 showPos, hidePos;
@@ -31,16 +36,16 @@ public class Phone : NetworkBehaviour
     [SerializeField] private Ease showAnimationEase = Ease.OutExpo;
     private bool isShown;
 
-    private float textTimer;
     private float colorTimer;
+    private List<PhoneMessage> activeMessages;
 
     public void Init()
     {
         if (Instance == null)
         {
             Instance = this;
-            isShown = true;
-            Hide();
+            activeMessages = new List<PhoneMessage>();
+            Hide(true);
         }
         else
         {
@@ -87,9 +92,15 @@ public class Phone : NetworkBehaviour
 
     public void DisplayText(string _text, float _duration)
     {
-        text.text = _text;
-        textTimer = _duration;
-        text.enabled = true;
+        if (activeMessages.Count >= allowedMessageCount)
+        {
+            PhoneMessage _firstShownMessage = activeMessages.First((_msg) => _msg.IsShown);
+            _firstShownMessage?.ForceHide();
+        }
+        PhoneMessage _phoneMessage = Instantiate(messagePrefab, messageParent);
+        _phoneMessage.ShowMessage(_text, _duration, this);
+        activeMessages.Add(_phoneMessage);
+
     }
 
 
@@ -111,23 +122,14 @@ public class Phone : NetworkBehaviour
     public void DisplayColor(Color _color, float _duration)
     {
         phoneQuad.material.color = _color;
+        phoneQuad.material.SetColor("_EmissionColor", _color);
         colorTimer = _duration;
         phoneQuad.enabled = true;
     }
 
     private void Update()
     {
-        TextUpdate();
         ColorUpdate();
-    }
-
-    private void TextUpdate()
-    {
-        textTimer -= Time.deltaTime;
-        if (textTimer <= 0 && text.enabled)
-        {
-            text.enabled = false;
-        }
     }
 
     private void ColorUpdate()
@@ -153,9 +155,9 @@ public class Phone : NetworkBehaviour
         });
     }
 
-    private void Hide()
+    private void Hide(bool _force = false)
     {
-        if (!isShown)
+        if (!isShown && !_force)
         {
             return;
         }
@@ -165,5 +167,10 @@ public class Phone : NetworkBehaviour
             isShown = false;
             gameObject.SetActive(false);
         });
+    }
+
+    internal void RemoveMessage(PhoneMessage _phoneMessage)
+    {
+        activeMessages.Remove(_phoneMessage);
     }
 }

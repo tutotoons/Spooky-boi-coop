@@ -2000,6 +2000,11 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3025825659
       objectReference: {fileID: 0}
+    - target: {fileID: 4170741698484969503, guid: faba688adedeb3844b0d409a3641e837,
+        type: 3}
+      propertyPath: color.g
+      value: 0.020871162
+      objectReference: {fileID: 0}
     - target: {fileID: 4295950716569839422, guid: faba688adedeb3844b0d409a3641e837,
         type: 3}
       propertyPath: GlobalObjectIdHash

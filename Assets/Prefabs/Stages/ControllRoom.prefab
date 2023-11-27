@@ -3581,12 +3581,12 @@ PrefabInstance:
     - target: {fileID: 3113861425326929789, guid: 74c144fb0f1520b45b032636dbb88204,
         type: 3}
       propertyPath: color.b
-      value: 0
+      value: 0.010550499
       objectReference: {fileID: 0}
     - target: {fileID: 3113861425326929789, guid: 74c144fb0f1520b45b032636dbb88204,
         type: 3}
       propertyPath: color.g
-      value: 0.9082564
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3113861425326929789, guid: 74c144fb0f1520b45b032636dbb88204,
         type: 3}
@@ -4442,6 +4442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: message
       value: BACK
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912632703941742462, guid: e9ee5ca7499851a488ce9be4071392b1,
+        type: 3}
+      propertyPath: duration
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9ee5ca7499851a488ce9be4071392b1, type: 3}
@@ -5666,6 +5671,11 @@ PrefabInstance:
       propertyPath: message
       value: STOP
       objectReference: {fileID: 0}
+    - target: {fileID: 6912632703941742462, guid: e9ee5ca7499851a488ce9be4071392b1,
+        type: 3}
+      propertyPath: duration
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9ee5ca7499851a488ce9be4071392b1, type: 3}
 --- !u!4 &4295950716569839392 stripped
@@ -6210,6 +6220,11 @@ PrefabInstance:
         type: 3}
       propertyPath: GlobalObjectIdHash
       value: 951099334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6912632703941742462, guid: e9ee5ca7499851a488ce9be4071392b1,
+        type: 3}
+      propertyPath: duration
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9ee5ca7499851a488ce9be4071392b1, type: 3}

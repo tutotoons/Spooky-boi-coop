@@ -295,6 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52666e35b4d857e4b944e27629f86ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 6912632703941742456}
   interactionCooldown: 0.5
   outline: {fileID: 6912632703941742463}
   InteractUnityEvent:
@@ -313,10 +314,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   interactableType: 0
-  animator: {fileID: 6912632703941742456}
   interactives: []
   message: RUN
-  duration: 5
+  duration: 3
   heat: 0
 --- !u!114 &6912632703941742463
 MonoBehaviour:
