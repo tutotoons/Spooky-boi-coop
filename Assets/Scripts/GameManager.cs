@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        joinCode = joinField.text;
+        joinCode = joinField.text.ToUpper();
         canClickButtons = false;
         relay.JoinRelay(joinCode ,(_success) =>
         {
