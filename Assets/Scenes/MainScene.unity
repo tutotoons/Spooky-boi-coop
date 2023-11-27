@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b575bdde77f8f4de2aaca402e9d0f120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   interactableSequence:
   - {fileID: 347762757}
   - {fileID: 347762756}
@@ -358,6 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b575bdde77f8f4de2aaca402e9d0f120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   interactableSequence: []
 --- !u!114 &173147165
 MonoBehaviour:
@@ -403,7 +405,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 409402713}
-        m_TargetAssemblyTypeName: ToggleDoorInteractionListener, Assembly-CSharp
+        m_TargetAssemblyTypeName: BaseToggleInteractionListener, Assembly-CSharp
         m_MethodName: Activate
         m_Mode: 6
         m_Arguments:
@@ -489,6 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b575bdde77f8f4de2aaca402e9d0f120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   interactableSequence:
   - {fileID: 390942203}
 --- !u!1001 &219828527
@@ -1036,6 +1039,11 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2050041419
       objectReference: {fileID: 0}
+    - target: {fileID: 3046326464058574384, guid: b3bdff975eedd8c48a9f4cd40b454e62,
+        type: 3}
+      propertyPath: startingState
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3046326464058574387, guid: b3bdff975eedd8c48a9f4cd40b454e62,
         type: 3}
       propertyPath: GlobalObjectIdHash
@@ -1160,7 +1168,7 @@ PrefabInstance:
         type: 3}
       propertyPath: interactives.Array.data[3]
       value: 
-      objectReference: {fileID: 409402713}
+      objectReference: {fileID: 0}
     - target: {fileID: 6420011660841646962, guid: b3bdff975eedd8c48a9f4cd40b454e62,
         type: 3}
       propertyPath: GlobalObjectIdHash
@@ -1357,6 +1365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b575bdde77f8f4de2aaca402e9d0f120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   interactableSequence: []
 --- !u!43 &361834989
 Mesh:
@@ -1971,6 +1980,11 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 792811282
       objectReference: {fileID: 0}
+    - target: {fileID: 3308720048573480597, guid: faba688adedeb3844b0d409a3641e837,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2432520837
+      objectReference: {fileID: 0}
     - target: {fileID: 3592192042339811468, guid: faba688adedeb3844b0d409a3641e837,
         type: 3}
       propertyPath: GlobalObjectIdHash
@@ -2040,14 +2054,14 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: faba688adedeb3844b0d409a3641e837, type: 3}
 --- !u!114 &409402713 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6228502737755030063, guid: faba688adedeb3844b0d409a3641e837,
+  m_CorrespondingSourceObject: {fileID: 3308720048573480598, guid: faba688adedeb3844b0d409a3641e837,
     type: 3}
   m_PrefabInstance: {fileID: 409402712}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b95602c33437e764091589b71dfe992b, type: 3}
+  m_Script: {fileID: 11500000, guid: a70349783cc461c428ef0b21a72f19f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &445953819 stripped
@@ -2106,6 +2120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b575bdde77f8f4de2aaca402e9d0f120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   interactableSequence:
   - {fileID: 347762754}
 --- !u!1 &453740441
@@ -2213,6 +2228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b575bdde77f8f4de2aaca402e9d0f120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   interactableSequence: []
 --- !u!1 &464060929
 GameObject:
@@ -2366,6 +2382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b575bdde77f8f4de2aaca402e9d0f120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   interactableSequence:
   - {fileID: 1738117584}
 --- !u!1001 &566420564
@@ -2558,6 +2575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b575bdde77f8f4de2aaca402e9d0f120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   interactableSequence: []
 --- !u!114 &636062347
 MonoBehaviour:
@@ -3251,6 +3269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b575bdde77f8f4de2aaca402e9d0f120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   interactableSequence:
   - {fileID: 445953819}
   - {fileID: 690169582}
@@ -5911,6 +5930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b575bdde77f8f4de2aaca402e9d0f120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   interactableSequence:
   - {fileID: 1279017941}
 --- !u!1 &1513788365
@@ -7036,6 +7056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b575bdde77f8f4de2aaca402e9d0f120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   interactableSequence:
   - {fileID: 925952042}
 --- !u!1 &1978813489
@@ -7732,7 +7753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134874374}
   m_LocalRotation: {x: -0, y: 0.7071071, z: -0, w: 0.70710653}
-  m_LocalPosition: {x: -42.1, y: -6.5099945, z: -35.3}
+  m_LocalPosition: {x: -40.72, y: -6.5099945, z: -35.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7782,18 +7803,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 409402713}
-        m_TargetAssemblyTypeName: ToggleDoorInteractionListener, Assembly-CSharp
-        m_MethodName: Activate
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   OnTriggerExited:
     m_PersistentCalls:
       m_Calls: []
@@ -7808,7 +7817,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.5, y: 5, z: 1}
+  m_Size: {x: 4.5, y: 5, z: 3.7}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2134874378
 MonoBehaviour:
@@ -7822,6 +7831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b575bdde77f8f4de2aaca402e9d0f120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActive: 0
   interactableSequence: []
 --- !u!1001 &8722201143246573705
 PrefabInstance:

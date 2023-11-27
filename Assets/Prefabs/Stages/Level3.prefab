@@ -44900,7 +44900,7 @@ PrefabInstance:
     - target: {fileID: 2848503341968581018, guid: d423f1aef81f5174fa6ffb2b2d71d0e0,
         type: 3}
       propertyPath: startingState
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2848503341968581019, guid: d423f1aef81f5174fa6ffb2b2d71d0e0,
         type: 3}
@@ -44978,7 +44978,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a70349783cc461c428ef0b21a72f19f0, type: 3}
+  m_Script: {fileID: 11500000, guid: b95602c33437e764091589b71dfe992b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &3046326464058574385 stripped

@@ -7,16 +7,16 @@ public class Objective : MonoBehaviour
     public event Action<Objective> CompletedEvent;
     public event Action<Objective> ResetEvent;
 
-    public State CurrentState => _state;
+    public bool IsActive;
 
     [SerializeField] private BaseInteractable[] interactableSequence;
 
-    private State _state;
     private int _index;
 
     private void Awake()
     {
-        foreach(BaseInteractable interactable in interactableSequence)
+        IsActive = false;
+        foreach (BaseInteractable interactable in interactableSequence)
         {
             interactable.InteractEvent += OnInteracted;
         }
@@ -24,8 +24,7 @@ public class Objective : MonoBehaviour
 
     private void OnInteracted(BaseInteractable interactable)
     {
-
-        if(_state != State.Active)
+        if(!IsActive)
         {
             return;
         }
@@ -63,16 +62,12 @@ public class Objective : MonoBehaviour
     public void ResetObjective()
     {
         _index = 0;
-
         ResetEvent?.Invoke(this);
     }
 
     public void CompleteObjective()
     {
-        _state = State.Completed;
-
         Debug.Log("Completed objective with name: " + gameObject.name);
-
         CompletedEvent?.Invoke(this);
     }
 

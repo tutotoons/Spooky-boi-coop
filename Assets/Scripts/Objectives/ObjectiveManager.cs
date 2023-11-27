@@ -37,10 +37,12 @@ public class ObjectiveManager : NetworkBehaviour
         objectives[previousValue].CompletedEvent -= OnCompletedObjective;
         objectives[previousValue].UpdatedGoalEvent -= OnUpdatedObjectiveGoal;
         objectives[previousValue].ResetEvent -= OnUpdatedObjectiveGoal;
+        objectives[previousValue].IsActive = false;
 
         objectives[newValue].CompletedEvent += OnCompletedObjective;
         objectives[newValue].UpdatedGoalEvent += OnUpdatedObjectiveGoal;
         objectives[newValue].ResetEvent += OnUpdatedObjectiveGoal;
+        objectives[newValue].IsActive = true;
 
         SetRadarToCurrentObjective();
     }
