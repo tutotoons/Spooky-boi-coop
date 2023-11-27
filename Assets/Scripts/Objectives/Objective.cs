@@ -24,12 +24,12 @@ public class Objective : MonoBehaviour
 
     private void OnInteracted(BaseInteractable interactable)
     {
-        Debug.Log("On interact in state: " + _state.ToString());
 
         if(_state != State.Active)
         {
             return;
         }
+        Debug.Log($"{transform.name} On interact {_index} {interactableSequence.Length}");
 
         if(interactable == interactableSequence[_index])
         {

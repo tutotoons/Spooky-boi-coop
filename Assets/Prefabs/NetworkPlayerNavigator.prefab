@@ -697,8 +697,8 @@ MonoBehaviour:
   - {fileID: 8132581344928975457}
   - {fileID: 5031545155301956723}
   - {fileID: 7911472972315363709}
-  MoveSpeed: 4
-  RotationSpeed: 350
+  MoveSpeed: 5
+  RotationSpeed: 150
   lives: 3
   JumpHeight: 0.2
   Gravity: -30

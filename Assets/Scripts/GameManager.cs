@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
             if (_success)
             {
                 joinCode = _joinCode;
+                GUIUtility.systemCopyBuffer = joinCode;
                 gameStartUI.SetActive(false);
                 playerUI.SetActive(true);
             }

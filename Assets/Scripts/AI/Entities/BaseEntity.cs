@@ -13,6 +13,7 @@ public class BaseEntity : NetworkBehaviour
     [SerializeField] protected float stopDist;
     [SerializeField] protected Transform teleportAwayTarget;
     [SerializeField] protected LayerMask ignoreRaycastMask;
+    [SerializeField] protected Animator animator;
 
     [Header("Tweaking")]
     [SerializeField] private float heatDecaySpeed;
@@ -93,14 +94,23 @@ public class BaseEntity : NetworkBehaviour
         return totalHeat.Value > maxHeat;
     }
 
+    private Vector3 previousPos;
+
     private void Update()
     {
-        if(!initialized)
+        if (!initialized)
         {
             return;
         }
-
+        ANimate();
         stateMachine.Tick(Time.deltaTime);
         AddHeat(-Time.deltaTime * heatDecaySpeed);
+    }
+
+    private void ANimate()
+    {
+        float deltaPos = (transform.position - previousPos).magnitude;
+        animator.SetFloat("Speed", Mathf.Clamp01((deltaPos / Time.deltaTime) / 4f));
+        previousPos = transform.position;
     }
 }

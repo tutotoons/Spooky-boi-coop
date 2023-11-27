@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,9 +16,7 @@ public class BaseSequenceInteractable : BaseInteractable
         }
 
         base.Interact();
-
         timer = interactionCooldown;
-        AnimateInteractionServerRpc();
 
         foreach (BaseSequenceInteractionListener _interactive in interactives)
         {

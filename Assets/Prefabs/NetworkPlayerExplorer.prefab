@@ -1218,8 +1218,8 @@ MonoBehaviour:
   povRenderTexture: {fileID: 8400000, guid: 635aefaed99f2492d8939d93a2e22bfe, type: 2}
   renderers:
   - {fileID: 8994898858729714351}
-  MoveSpeed: 4
-  RotationSpeed: 350
+  MoveSpeed: 5
+  RotationSpeed: 150
   lives: 3
   JumpHeight: 0.2
   Gravity: -30

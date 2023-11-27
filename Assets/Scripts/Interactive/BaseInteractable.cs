@@ -11,9 +11,10 @@ public class BaseInteractable : NetworkBehaviour
     [SerializeField] protected Animator animator;
     [SerializeField] protected float interactionCooldown;
     [SerializeField] private Outline outline;
-    [SerializeField] private UnityEvent InteractUnityEvent;
+    [SerializeField] protected UnityEvent InteractUnityEvent;
 
     protected float timer;
+
     protected bool CanInteract() => timer <= 0f;
 
     private void Update()
@@ -29,14 +30,28 @@ public class BaseInteractable : NetworkBehaviour
 
     public virtual void Interact()
     {
-        if(CanInteract())
+        if (CanInteract())
         {
             InteractUnityEvent?.Invoke();
-            InteractEvent?.Invoke(this);
+            InvokeBaseInteractEventServerRpc();
             AnimateInteractionServerRpc();
             return;
         }
     }
+
+    [ServerRpc(RequireOwnership = false)]
+    protected void InvokeBaseInteractEventServerRpc()
+    {
+        InvokeBaseInteractEventClientRpc();
+    }
+
+    [ClientRpc]
+    protected void InvokeBaseInteractEventClientRpc()
+    {
+        Debug.Log($"interact called for {transform.name}");
+        InteractEvent?.Invoke(this);
+    }
+
 
     [ServerRpc(RequireOwnership = false)]
     protected void AnimateInteractionServerRpc()
