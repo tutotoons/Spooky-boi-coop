@@ -50,7 +50,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.25, z: 0.25}
+  m_Size: {x: 0.3, y: 0.3, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &46646485
 MonoBehaviour:
@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2d220dd5020cd4b810d8595c68887a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 9123744811203906708}
   interactionCooldown: 0.5
   outline: {fileID: 9104106541880796382}
   InteractUnityEvent:
@@ -102,7 +103,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   interactableType: 0
-  animator: {fileID: 9123744811203906708}
   interactives: []
 --- !u!114 &9104106541880796382
 MonoBehaviour:
